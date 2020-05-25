@@ -1,13 +1,11 @@
-<form class='login-form'>
-    <mat-form-field appearance='fill'>
+<form class="login-form" #f="ngForm" (ngSubmit)="onLogin(f)">
+    <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput>
+        <input matInput ngModel name="email">
     </mat-form-field>
-    <mat-form-field appearance='fill'>
+    <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput>
+        <input matInput ngModel type="password" name="password">
     </mat-form-field>
+    <button mat-raised-button type="submit">Sign in</button>
 </form>
-<div class='newClass'>
-
-</div>
