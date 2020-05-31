@@ -1,0 +1,16 @@
+.homepage-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10%;
+    flex-wrap: wrap;
+}
+
+.homepage-login-form-component {
+    flex: 50%;
+}
+
+.homepage-title {
+    flex: 50%;
+}

@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    LoginComponent
+    LoginComponent,
   ]
 })
 export class LoginModule {  }
