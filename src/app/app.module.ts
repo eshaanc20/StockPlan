@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 
-import { LoginModule } from './modules/login/login.module';
 import { HomepageModule } from './modules/homepage/homepage.module';
 
 
