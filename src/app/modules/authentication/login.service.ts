@@ -8,12 +8,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoginService {
-  private loggedIn = false;
-  private user: Subject<User>;
+  loggedIn = false;
+  user = new Subject<User>();
+  loginError = new Subject<string>();
 
-  constructor(private http: HttpClient) {
-    this.user = new Subject<User>();
-   }
+  constructor(private http: HttpClient) {  }
 
   login(loginEmail: string, loginPassword: string) {
     this.http.post('http://localhost:3000/user/login', {email: loginEmail, password: loginPassword})
@@ -32,15 +31,16 @@ export class LoginService {
           this.user.next(new User(res.firstName, res.lastName, res.email, res.token));
         } else {
           this.loggedIn = false;
+          this.loginError.next('Login error');
         }
       });
   }
 
   signup(firstName: string, lastName: string, newEmail: string, newPassword: string) {
-    this.http.post('http://localhost:3000/user/new', {
+    return this.http.post('http://localhost:3000/user/new', {
       firstName: firstName,
       lastName: lastName,
-      email: newEmail, 
+      email: newEmail,
       password: newPassword
     });
   }

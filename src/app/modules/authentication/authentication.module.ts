@@ -7,11 +7,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, SignupComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     LoginComponent,
+    SignupComponent
   ]
 })
 export class AuthenticationModule { }

@@ -1,3 +1,10 @@
+.homepage{
+    border: 1px solid black;
+    position: absolute;
+    z-index: -1;
+    border-top: 100vh solid #1468e7;
+    border-right: 100vw solid transparent;
+}
 .homepage-content {
     display: flex;
     flex-direction: row;
@@ -5,12 +12,16 @@
     justify-content: center;
     margin-top: 10%;
     flex-wrap: wrap;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .homepage-login-form-component {
-    flex: 50%;
+    flex: 20%;
 }
 
 .homepage-title {
-    flex: 50%;
+    flex: 20%;
+    color: white;
+    font-size: 40px;
+    margin-left: 50px;
 }
