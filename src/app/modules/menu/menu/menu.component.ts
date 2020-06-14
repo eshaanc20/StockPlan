@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { SignupComponent } from '../../authentication/signup/signup.component';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  private newDialog: any;
+
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  open() {
+    this.newDialog = this.dialog.open(SignupComponent);
   }
 
 }

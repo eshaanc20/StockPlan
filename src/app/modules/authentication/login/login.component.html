@@ -1,5 +1,5 @@
 <div class="login-form-component">
-    <p>Login</p>
+    <p class='title1'>Sign in</p>
     <form class="login-form" #f="ngForm" (ngSubmit)="onLogin(f)">
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
@@ -9,6 +9,6 @@
             <mat-label>Password</mat-label>
             <input matInput ngModel type="password" name="password">
         </mat-form-field>
-        <button mat-raised-button type="submit">Sign in</button>
+        <button mat-raised-button type="submit" class="button1">Sign in</button>
     </form>
 </div>

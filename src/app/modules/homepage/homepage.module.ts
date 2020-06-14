@@ -13,7 +13,7 @@ import { AuthenticationModule } from '../authentication/authentication.module';
     CommonModule,
     FormsModule,
     AuthenticationModule,
-    MenuModule
+    MenuModule,
   ],
   exports: [
     HomepageComponent

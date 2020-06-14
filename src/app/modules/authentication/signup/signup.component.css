@@ -1,12 +1,22 @@
-.signup-form {
+.signup-form{
     display: flex;
     flex-direction: column;
 }
 
-.signup-form-component {
-    border: 1px solid lightgray;
-    box-shadow: 0px 5px 5px lightgray;
-    padding: 40px;
-    width: 90%;
-    max-width: 400px;
+.title2{
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.signup-form-component{
+    width: 400px;
+    height: 470px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.button2{
+    background-color: #1468e7;
+    color: white;
 }

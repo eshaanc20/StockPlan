@@ -1,5 +1,5 @@
-<div class="signup-form-component">
-    <p>Sign up</p>
+<div class="signup-form-component" mat-dialog-content>
+    <p class='title2'>Sign up</p>
     <form class="signup-form" #f="ngForm" (ngSubmit)="onSignup(f)">
         <mat-form-field appearance="fill">
             <mat-label>First Name</mat-label>
@@ -17,8 +17,7 @@
             <mat-label>Password</mat-label>
             <input matInput ngModel type="password" name="password">
         </mat-form-field>
-        <button mat-raised-button type="submit">Sign in</button>
+        <button mat-raised-button type="submit" class="button2">Sign up</button>
     </form>
     <p *ngIf="inProgress">In progress</p>
 </div>
-
