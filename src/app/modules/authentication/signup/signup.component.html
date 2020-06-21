@@ -1,23 +1,23 @@
-<div class="signup-form-component" mat-dialog-content>
+<div class='signup-form-component' mat-dialog-content>
     <p class='title2'>Sign up</p>
-    <form class="signup-form" #f="ngForm" (ngSubmit)="onSignup(f)">
-        <mat-form-field appearance="fill">
+    <form class='signup-form' #f='ngForm' (ngSubmit)='onSignup(f)'>
+        <mat-form-field appearance='fill'>
             <mat-label>First Name</mat-label>
-            <input matInput ngModel name="firstName">
+            <input matInput ngModel name='firstName'>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance='fill'>
             <mat-label>Last Name</mat-label>
-            <input matInput ngModel name="lastName">
+            <input matInput ngModel name='lastName'>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance='fill'>
             <mat-label>Email</mat-label>
-            <input matInput ngModel name="email">
+            <input matInput ngModel name='email'>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance='fill'>
             <mat-label>Password</mat-label>
-            <input matInput ngModel type="password" name="password">
+            <input matInput ngModel type='password' name='password'>
         </mat-form-field>
-        <button mat-raised-button type="submit" class="button2">Sign up</button>
+        <button mat-raised-button type='submit' class='button2'>Sign up</button>
     </form>
-    <p *ngIf="inProgress">In progress</p>
+    <p *ngIf='inProgress'>In progress</p>
 </div>

@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 import { HomepageModule } from './modules/homepage/homepage.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HomepageModule } from './modules/homepage/homepage.module';
     BrowserAnimationsModule,
     FormsModule,
     HomepageModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

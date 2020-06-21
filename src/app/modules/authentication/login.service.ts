@@ -18,11 +18,7 @@ export class LoginService {
     this.http.post('http://localhost:3000/user/login', {email: loginEmail, password: loginPassword})
       .pipe(map(res => {
         let resData;
-        for (const i in res) {
-          if (res.hasOwnProperty(i)) {
-            resData = {...res[i]};
-          }
-        }
+        resData = {...res};
         return resData;
       }))
       .subscribe(res => {

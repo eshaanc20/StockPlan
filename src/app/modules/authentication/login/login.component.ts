@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { User } from '../User';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,13 +11,16 @@ import { User } from '../User';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loggedInStatus = false;
+  loggedIn = false;
   user: User;
   error: string;
 
-  constructor(private loginService: LoginService) { 
+  constructor(private loginService: LoginService, private router: Router) {
     loginService.user.subscribe(res => {
+      this.loggedIn = true;
       this.user = res;
+      this.error = '';
+      this.router.navigate(['/dashboard']);
     });
     loginService.loginError.subscribe(err => {
       this.error = err;
