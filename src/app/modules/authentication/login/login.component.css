@@ -1,0 +1,29 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.login-form-component {
+    border: 1px solid lightgray;
+    box-shadow: 0px 5px 5px lightgray;
+    width: 50%;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 6px;
+    padding-bottom: 40px;
+    max-width: 400px;
+    background-color: white;
+}
+
+.title1{
+    font-size: 25px;
+    text-align: center;
+}
+
+.button1{
+    background-color: #1468e7;
+    color: white;
+    width: 100px;
+    margin: auto;
+}
