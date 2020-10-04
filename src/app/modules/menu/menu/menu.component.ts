@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
 import { SignupComponent } from '../../authentication/signup/signup.component';
 import { User } from '../../authentication/User';
@@ -11,14 +12,28 @@ import { User } from '../../authentication/User';
 })
 export class MenuComponent implements OnInit {
   private newDialog: any;
-  loggedIn: boolean;
-  userFirstName: String;
+  loggedIn = false;
+  userFirstName: string;
+  homepage: boolean;
 
-  constructor(private dialog: MatDialog, private loginService: LoginService) { 
-    this.loggedIn = loginService.getLoginStatus();
-    if (this.loggedIn) {
-      this.userFirstName = loginService.getLoginInformation().getFirstName();
+  constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router) {
+    const currentToken = localStorage.getItem('token');
+    if (currentToken) {
+      loginService.verifyToken(currentToken);
     }
+    if (router.url === '/dashboard') {
+      this.homepage = false;
+    } else {
+      this.homepage = true;
+    }
+    console.log(this.router.url);
+    loginService.user.subscribe(res => {
+      this.userFirstName = res.getFirstName();
+      this.loggedIn = true;
+      if (router.url === '/dashboard') {
+        this.homepage = false;
+      }
+    });
    }
 
   ngOnInit() {
@@ -28,4 +43,7 @@ export class MenuComponent implements OnInit {
     this.newDialog = this.dialog.open(SignupComponent);
   }
 
+  login() {
+    this.router.navigate(['/dashboard']);
+  }
 }

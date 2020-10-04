@@ -1,10 +1,13 @@
 <mat-toolbar class="menu-toolbar">
-    <p *ngIf="!loggedIn">StockPlan</p>
-    <p *ngIf="loggedIn">StockPlan <span style="color: lightgray">| Plan your investments</span></p>
+    <p *ngIf="homepage">StockPlan</p>
+    <p *ngIf="!homepage">StockPlan <span style="color: lightgray">| Plan your investments</span></p>
     <div *ngIf="!loggedIn">
         <button mat-raised-button (click)="open()">Sign up</button>
     </div>
-    <div *ngIf="loggedIn">
+    <div *ngIf="loggedIn && homepage">
+        <button mat-raised-button (click)="login()">Logged in as {{userFirstName}}</button>
+    </div>
+    <div *ngIf="loggedIn && !homepage">
         <p>{{userFirstName}}</p>
     </div>
 </mat-toolbar>
