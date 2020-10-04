@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from './User';
 import { HttpClient } from '@angular/common/http';
@@ -25,7 +25,8 @@ export class LoginService {
       .subscribe(res => {
         if (res.login) {
           this.loggedIn = true;
-          this.userInformation = new User(res.firstName, res.lastName, res.email, res.token);
+          this.userInformation = new User(res.firstName, res.lastName, res.email, res.token, res.newToken);
+          localStorage.setItem('token', res.token);
           this.user.next(this.userInformation);
         } else {
           this.loggedIn = false;
@@ -40,6 +41,24 @@ export class LoginService {
       lastName: lastName,
       email: newEmail,
       password: newPassword
+    });
+  }
+
+  verifyToken(previousToken: string) {
+    this.http.post('http://localhost:3000/user/verify-token', {token: previousToken})
+    .pipe(map(res => {
+      let resData;
+      resData = {...res};
+      return resData;
+    }))
+    .subscribe(res => {
+      if (res.tokenStatus) {
+        this.loggedIn = true;
+        this.userInformation = new User(res.firstName, res.lastName, res.email, res.token, res.newToken);
+        this.user.next(this.userInformation);
+      } else {
+        this.loggedIn = false;
+      }
     });
   }
 

@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) {
     loginService.user.subscribe(res => {
       this.loggedIn = true;
-      this.user = res;
+      this.user = res; 
       this.error = '';
-      this.router.navigate(['/dashboard']);
+      if (res.getNewToken()) {
+        this.router.navigate(['/dashboard']);
+      }
     });
     loginService.loginError.subscribe(err => {
       this.error = err;
