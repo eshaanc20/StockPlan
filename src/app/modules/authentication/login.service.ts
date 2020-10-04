@@ -11,6 +11,7 @@ export class LoginService {
   loggedIn = false;
   user = new Subject<User>();
   loginError = new Subject<string>();
+  userInformation: User;
 
   constructor(private http: HttpClient) {  }
 
@@ -24,7 +25,8 @@ export class LoginService {
       .subscribe(res => {
         if (res.login) {
           this.loggedIn = true;
-          this.user.next(new User(res.firstName, res.lastName, res.email, res.token));
+          this.userInformation = new User(res.firstName, res.lastName, res.email, res.token);
+          this.user.next(this.userInformation);
         } else {
           this.loggedIn = false;
           this.loginError.next('Login error');
@@ -39,5 +41,15 @@ export class LoginService {
       email: newEmail,
       password: newPassword
     });
+  }
+
+  getLoginStatus() {
+    return this.loggedIn;
+  }
+  
+  getLoginInformation() {
+    if (this.loggedIn) {
+      return this.userInformation;
+    }
   }
 }
