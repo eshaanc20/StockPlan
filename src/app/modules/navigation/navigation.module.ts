@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatButtonModule, MatIconModule } from '@angular/material';
+import { StockListsModule } from '../stock-lists/stock-lists.module';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
   imports: [
     CommonModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    StockListsModule
   ],
   exports: [NavigationComponent]
 })

@@ -17,20 +17,19 @@ export class MenuComponent implements OnInit {
   homepage: boolean;
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router) {
+    if (router.url === '/') {
+      this.homepage = true;
+    } else {
+      this.homepage = false;
+    }
     const currentToken = localStorage.getItem('token');
     if (currentToken) {
       loginService.verifyToken(currentToken);
     }
-    if (router.url === '/dashboard') {
-      this.homepage = false;
-    } else {
-      this.homepage = true;
-    }
-    console.log(this.router.url);
     loginService.user.subscribe(res => {
       this.userFirstName = res.getFirstName();
       this.loggedIn = true;
-      if (router.url === '/dashboard') {
+      if (router.url !== '/') {
         this.homepage = false;
       }
     });

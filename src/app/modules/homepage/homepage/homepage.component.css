@@ -5,6 +5,7 @@
     border-top: 100vh solid #1468e7;
     border-right: 100vw solid transparent;
 }
+
 .homepage-content {
     display: flex;
     flex-direction: row;

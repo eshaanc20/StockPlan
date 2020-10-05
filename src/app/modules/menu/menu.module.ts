@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { SignupComponent } from '../authentication/signup/signup.component';
+import { MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [MenuComponent],
@@ -16,7 +17,8 @@ import { SignupComponent } from '../authentication/signup/signup.component';
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
-    AuthenticationModule
+    AuthenticationModule,
+    MatIconModule
   ],
   exports: [
     MenuComponent

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { NewListComponent } from '../new-list/new-list.component';
 
 @Component({
   selector: 'app-stock-lists',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-lists.component.css']
 })
 export class StockListsComponent implements OnInit {
+  private newDialog: any;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+  addNewList() {
+    this.newDialog = this.dialog.open(NewListComponent);
+  }
 }
