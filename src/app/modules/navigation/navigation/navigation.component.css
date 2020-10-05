@@ -1,0 +1,20 @@
+.navigation {
+    width: 220px;
+    height: 100vh;
+    box-shadow: 0px 5px 20px lightgray;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+.navigation-button {
+    width: 100%;
+    background-color: white;
+    height: 40px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 15px;
+    border: none;
+}
+
+.navigation-button:hover {
+    cursor: pointer;
+}

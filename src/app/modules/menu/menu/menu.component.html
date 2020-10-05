@@ -1,4 +1,4 @@
-<mat-toolbar class="menu-toolbar">
+<mat-toolbar [ngClass]="{'menu-toolbar': homepage, 'menu-toolbar-2': !homepage}">
     <p *ngIf="homepage">StockPlan</p>
     <p *ngIf="!homepage">StockPlan <span style="color: lightgray">| Plan your investments</span></p>
     <div *ngIf="!loggedIn">
