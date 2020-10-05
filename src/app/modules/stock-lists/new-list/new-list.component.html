@@ -1,6 +1,6 @@
 <div class='add-list-form-component'>
     <p class="title">New List</p>
-    <form class='new-list-form' #f='ngForm'>
+    <form class='new-list-form' #f='ngForm' (submit)="newList(f)">
         <mat-form-field appearance='fill' style="width:250px">
             <mat-label>Name</mat-label>
             <input matInput ngModel name='Name'>
