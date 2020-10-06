@@ -8,6 +8,7 @@ import { StockListsService } from '../stock-lists.service';
   styleUrls: ['./new-list.component.css']
 })
 export class NewListComponent implements OnInit {
+  progress = false;
 
   constructor(private stockListsService: StockListsService) { }
 
@@ -15,7 +16,10 @@ export class NewListComponent implements OnInit {
   }
 
   newList(f: NgForm) {
-    this.stockListsService.addNewList(f.value.name);
+    this.progress = true;
+    this.stockListsService.addNewList(f.value.name).subscribe(res => {
+      this.progress = false;
+    });
   }
 
 }
