@@ -6,11 +6,14 @@ import { NewListComponent } from './new-list/new-list.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from '../authentication/signup/signup.component';
+import { LoginService } from '../authentication/login.service';
+import { StockListsService } from './stock-lists.service';
+import { ListDetailComponent } from './list-detail/list-detail.component';
 
 
 
 @NgModule({
-  declarations: [StockListsComponent, NewListComponent],
+  declarations: [StockListsComponent, NewListComponent, ListDetailComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -22,6 +25,7 @@ import { SignupComponent } from '../authentication/signup/signup.component';
     MatFormFieldModule
   ],
   exports: [StockListsComponent],
+  providers: [LoginService, StockListsService],
   entryComponents: [
     NewListComponent
   ]

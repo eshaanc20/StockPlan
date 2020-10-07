@@ -71,4 +71,10 @@ export class LoginService {
       return this.userInformation;
     }
   }
+
+  getLoginToken() {
+    if (this.loggedIn) {
+      return this.userInformation.getToken();
+    }
+  }
 }

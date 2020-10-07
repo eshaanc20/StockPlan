@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { LoginService } from '../../authentication/login.service';
+import { User } from '../../authentication/User';
 import { NewListComponent } from '../new-list/new-list.component';
+import { StockListsService } from '../stock-lists.service';
 
 @Component({
   selector: 'app-stock-lists',
@@ -9,10 +12,24 @@ import { NewListComponent } from '../new-list/new-list.component';
 })
 export class StockListsComponent implements OnInit {
   private newDialog: any;
+  stockLists: any;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private stockListService: StockListsService, private loginService: LoginService) {
+    if (this.loginService.getLoginStatus()) {
+      this.stockListService.getAllLists().subscribe(res => {
+        this.stockLists = res.allLists;
+      });
+    }
+  }
 
   ngOnInit() {
+    if (!this.loginService.getLoginStatus()) {
+      this.loginService.user.subscribe(res => {
+        this.stockListService.getAllLists().subscribe(lists => {
+          this.stockLists = lists.allLists;
+        });
+      });
+    }
   }
 
   addNewList() {

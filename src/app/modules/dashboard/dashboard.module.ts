@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuModule } from '../menu/menu.module';
 import { NavigationModule } from '../navigation/navigation.module';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { NavigationModule } from '../navigation/navigation.module';
   imports: [
     CommonModule,
     MenuModule,
-    NavigationModule
+    NavigationModule,
+    AppRoutingModule
   ],
   exports: [DashboardComponent]
 })

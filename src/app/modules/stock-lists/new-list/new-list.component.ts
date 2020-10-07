@@ -17,7 +17,7 @@ export class NewListComponent implements OnInit {
 
   newList(f: NgForm) {
     this.progress = true;
-    this.stockListsService.addNewList(f.value.name).subscribe(res => {
+    this.stockListsService.addNewList(f.value.listName).subscribe(res => {
       this.progress = false;
     });
   }

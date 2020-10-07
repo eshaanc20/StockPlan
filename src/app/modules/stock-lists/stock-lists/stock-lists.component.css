@@ -12,3 +12,11 @@
     justify-content: space-between; 
     font-size: 18px;
 }
+
+.navigation-lists-button {
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+}
