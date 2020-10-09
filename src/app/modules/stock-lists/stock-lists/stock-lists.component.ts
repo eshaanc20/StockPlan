@@ -15,11 +15,6 @@ export class StockListsComponent implements OnInit {
   stockLists: any;
 
   constructor(private dialog: MatDialog, private stockListService: StockListsService, private loginService: LoginService) {
-    if (this.loginService.getLoginStatus()) {
-      this.stockListService.getAllLists().subscribe(res => {
-        this.stockLists = res.allLists;
-      });
-    }
   }
 
   ngOnInit() {
@@ -28,6 +23,10 @@ export class StockListsComponent implements OnInit {
         this.stockListService.getAllLists().subscribe(lists => {
           this.stockLists = lists.allLists;
         });
+      });
+    } else {
+      this.stockListService.getAllLists().subscribe(res => {
+        this.stockLists = res.allLists;
       });
     }
   }

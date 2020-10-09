@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../../authentication/login.service';
 import { StockListsService } from '../stock-lists.service';
 
 @Component({
@@ -13,16 +14,26 @@ export class ListDetailComponent implements OnInit {
   listLength: number;
   stocks: any;
 
-  constructor(private route: ActivatedRoute, private stockListService: StockListsService) { }
+  constructor(private route: ActivatedRoute, private stockListService: StockListsService, private loginService: LoginService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
-      this.stockListService.getStockDetails(this.listId).subscribe(res => {
-        this.listName = res.name;
-        this.listLength = res.length;
-        this.stocks = res.stockDetail;
-      });
+      if (!this.loginService.getLoginStatus()) {
+        this.loginService.user.subscribe(res => {
+          this.stockListService.getStockDetails(this.listId).subscribe(list => {
+            this.listName = list.name;
+            this.listLength = list.length;
+            this.stocks = list.stockDetail;
+          });
+        });
+      } else {
+        this.stockListService.getStockDetails(this.listId).subscribe(res => {
+          this.listName = res.name;
+          this.listLength = res.length;
+          this.stocks = res.stockDetail;
+        });
+      }
     });
   }
   
