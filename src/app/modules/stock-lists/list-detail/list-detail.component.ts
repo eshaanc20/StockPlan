@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { StockListsService } from '../stock-lists.service';
 
 @Component({
   selector: 'app-list-detail',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-detail.component.css']
 })
 export class ListDetailComponent implements OnInit {
+  listId: string;
+  listName: string;
+  stocks: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private stockListService: StockListsService) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.listId = params.listNumber;
+      this.stockListService.getStockDetails(this.listId).subscribe(res => {
+        this.listName = res.name;
+        this.stocks = res.stockDetails;
+        console.log(this.stocks);
+      });
+    });
   }
-
+  
 }

@@ -7,7 +7,9 @@ import { ListDetailComponent } from './modules/stock-lists/list-detail/list-deta
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'dashboard', component: DashboardComponent, children: [
+    {path: 'list/:listNumber', component: ListDetailComponent}
+  ]}
 ];
 
 @NgModule({

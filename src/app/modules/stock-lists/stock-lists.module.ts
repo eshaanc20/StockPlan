@@ -9,6 +9,7 @@ import { SignupComponent } from '../authentication/signup/signup.component';
 import { LoginService } from '../authentication/login.service';
 import { StockListsService } from './stock-lists.service';
 import { ListDetailComponent } from './list-detail/list-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { ListDetailComponent } from './list-detail/list-detail.component';
     MatInputModule,
     MatDialogModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    RouterModule
   ],
   exports: [StockListsComponent],
   providers: [LoginService, StockListsService],

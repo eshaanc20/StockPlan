@@ -9,7 +9,7 @@
     </div>
     <div *ngFor="let list of stockLists">
         <div>
-            <a mat-button class="navigation-lists-button" [href]="'/dashboard/list/'+list.listNumber">{{list.name}}</a>
+            <a mat-button class="navigation-lists-button" [routerLink]="['/dashboard/list/'+list.listNumber]">{{list.name}}</a>
         </div>
     </div>
 </div>
