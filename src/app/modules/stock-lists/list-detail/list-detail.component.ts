@@ -10,6 +10,7 @@ import { StockListsService } from '../stock-lists.service';
 export class ListDetailComponent implements OnInit {
   listId: string;
   listName: string;
+  listLength: number;
   stocks: any;
 
   constructor(private route: ActivatedRoute, private stockListService: StockListsService) { }
@@ -19,8 +20,8 @@ export class ListDetailComponent implements OnInit {
       this.listId = params.listNumber;
       this.stockListService.getStockDetails(this.listId).subscribe(res => {
         this.listName = res.name;
-        this.stocks = res.stockDetails;
-        console.log(this.stocks);
+        this.listLength = res.length;
+        this.stocks = res.stockDetail;
       });
     });
   }

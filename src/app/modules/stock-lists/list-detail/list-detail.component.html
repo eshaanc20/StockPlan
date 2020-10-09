@@ -1,3 +1,7 @@
 <div>
-    <p></p>
+    <p>{{listName}}</p>
+    <p>{{listLength}} stocks</p>
+    <div *ngFor="let stock of stocks">
+        <p>{{stock.symbol}}</p>
+    </div>
 </div>

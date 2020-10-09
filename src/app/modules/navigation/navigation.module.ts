@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { StockListsModule } from '../stock-lists/stock-lists.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { StockListsModule } from '../stock-lists/stock-lists.module';
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    StockListsModule
+    StockListsModule,
+    RouterModule
   ],
   exports: [NavigationComponent]
 })
