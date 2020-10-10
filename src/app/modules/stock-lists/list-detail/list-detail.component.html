@@ -1,6 +1,9 @@
-<div>
-    <p>{{listName}}</p>
-    <p>{{listLength}} stocks</p>
+<div class="stock-detail">
+    <div style="display: flex; justify-content: space-between;">
+        <p style="font-size: 35px; margin-bottom: 0px">{{listName}}</p>
+        <p style="font-size: 35px; color: gray; margin-bottom: 0px">{{listLength}} stocks</p>
+    </div>
+    <hr>
     <div *ngFor="let stock of stocks">
         <p>{{stock.symbol}}</p>
     </div>
