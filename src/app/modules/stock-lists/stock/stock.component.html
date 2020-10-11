@@ -1,5 +1,9 @@
 <div class="stock-component">
     <div>
-        testing
+        <div style="display: flex; justify-content: space-between; font-size: 25px;">
+            <p>{{stock.symbol}}</p>
+            <p [ngStyle]="{'color': priceColor}">${{stock.amountChange}}</p>
+        </div>
+        <p>{{stock.percentChange}}%</p>
     </div>
 </div>

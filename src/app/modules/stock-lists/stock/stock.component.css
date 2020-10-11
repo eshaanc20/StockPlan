@@ -1,5 +1,8 @@
 .stock-component {
-    padding: 25px;
-    box-shadow: 0px 5px 5px lightgray;
-
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    box-shadow: 0px 4px 10px lightgray;
+    width: 250px;
+    border-radius: 40px;
 }
