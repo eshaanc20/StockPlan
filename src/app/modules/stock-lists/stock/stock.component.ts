@@ -15,7 +15,6 @@ interface StockInformationFormat {
   exchange: string;
   marketCap: number;
   outstanding: number;
-  testing: number;
 }
 
 @Component({
