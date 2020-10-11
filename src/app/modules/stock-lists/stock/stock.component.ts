@@ -25,10 +25,12 @@ interface StockInformationFormat {
 export class StockComponent implements OnInit {
   @Input() stock: StockInformationFormat;
   priceColor: string;
+  priceIncrease: boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.priceColor = this.stock.change === 'increase' ? 'green' : 'red';
+    this.priceIncrease = this.stock.change === 'increase' ? true : false;
   }
 }
