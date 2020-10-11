@@ -1,4 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+interface StockInformationFormat {
+  symbol: string;
+  current: number;
+  open: number;
+  high: number;
+  low: number;
+  change: string;
+  percentChange: number;
+  name: string;
+  currency: string;
+  exchange: string;
+  marketCap: number;
+  outstanding: number;
+}
 
 @Component({
   selector: 'app-stock',
@@ -6,12 +21,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
-  symbol: string;
-  currentPrice: number;
-  high: number;
-  low: number;
-  change: number;
-  goals: any;
+  @Input() stock: StockInformationFormat;
 
   constructor() { }
 

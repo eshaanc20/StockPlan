@@ -25,7 +25,7 @@ import { StockComponent } from './stock/stock.component';
     MatDialogModule,
     HttpClientModule,
     MatFormFieldModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [StockListsComponent],
   providers: [LoginService, StockListsService],

@@ -4,7 +4,9 @@
         <p style="font-size: 35px; color: gray; margin-bottom: 0px">{{listLength}} stocks</p>
     </div>
     <hr>
-    <div *ngFor="let stock of stocks">
-        <p>{{stock.symbol}}</p>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+        <div *ngFor="let stock of stocks" style="margin-right: 5%">
+            <app-stock></app-stock>
+        </div>
     </div>
 </div>
