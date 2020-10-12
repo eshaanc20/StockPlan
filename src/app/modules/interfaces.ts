@@ -14,4 +14,5 @@ export interface StockInformationFormat {
     eps: number;
     dividendYield: number;
     profitEarningRatio: number;
+    betaValue: number;
   }
