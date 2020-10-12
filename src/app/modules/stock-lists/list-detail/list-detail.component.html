@@ -1,7 +1,7 @@
 <div class="stock-detail">
-    <div style="display: flex; justify-content: space-between; padding-top: 25px">
+    <div style="display: flex; justify-content: space-between; padding-top: 25px; flex-wrap: wrap;">
         <p style="font-size: 35px; margin: 0px">{{listName}}</p>
-        <div style="display: flex;">
+        <div style="display: flex; flex-wrap: wrap;">
             <button mat-raised-button (click)="add()" class="button-add">Add new stock</button>
             <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 20px">{{listLength}} stocks</p>
             <p style="padding-right: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <hr>
-    <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px; justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px; justify-content: space-around">
         <div *ngFor="let stock of stocks">
             <app-stock [stock]="stock"></app-stock>
         </div>
