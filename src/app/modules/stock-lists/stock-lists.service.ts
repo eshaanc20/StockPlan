@@ -49,7 +49,7 @@ export class StockListsService {
     }));
   }
 
-  addNewStockToList(stock: string, listId: string) {
+  addNewStockToList(listId: string, stock: string) {
     return this.http.post('http://localhost:3000/watchlist/' + listId, {
       stockSymbol: stock
     }, {

@@ -49,7 +49,6 @@ export class ListDetailComponent implements OnInit {
         });
       } else {
         this.stockListService.getStockDetails(this.listId).subscribe(list => {
-          console.log('testing');
           this.listName = list.name;
           this.listLength = list.length;
           this.stocks = list.stockDetail;
@@ -68,6 +67,10 @@ export class ListDetailComponent implements OnInit {
   }
 
   add() {
-    this.newDialog = this.dialog.open(AddStockComponent);
+    this.newDialog = this.dialog.open(AddStockComponent, {
+      data: {
+        listNumber: this.listId
+      }
+    });
   }
 }

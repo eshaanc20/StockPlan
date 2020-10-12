@@ -1,11 +1,11 @@
 <div class='add-stock-form-component'>
     <p class="title">Add New Stock</p>
-    <form class='new-list-form' #f='ngForm'>
+    <form class='new-list-form' #f='ngForm' (submit)="addStockToList(f)">
         <mat-form-field appearance='outline' style="width:250px">
             <mat-label>Stock Symbol</mat-label>
             <input matInput ngModel name='stockSymbol'>
         </mat-form-field>
         <button mat-raised-button type='submit' class='button'>Add Stock to List</button>
-        <p>{{progress}}</p>
     </form>
+    <p>{{progress}}</p>
 </div>
