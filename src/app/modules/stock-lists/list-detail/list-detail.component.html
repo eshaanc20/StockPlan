@@ -1,7 +1,14 @@
 <div class="stock-detail">
-    <div style="display: flex; justify-content: space-between;">
-        <p style="font-size: 35px; margin-bottom: 0px">{{listName}}</p>
-        <p style="font-size: 35px; color: gray; margin-bottom: 0px">{{listLength}} stocks</p>
+    <div style="display: flex; justify-content: space-between; padding-top: 25px">
+        <p style="font-size: 35px; margin: 0px">{{listName}}</p>
+        <div style="display: flex;">
+            <p style="font-size: 35px; color: gray; margin: 0px">{{listLength}} stocks</p>
+            <p style="padding-right: 5px; padding-left: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
+            <mat-icon style="font-size: 35px;" [ngStyle]="{'color': priceColor}" *ngIf="priceIncrease">arrow_upward</mat-icon>
+            <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="!priceIncrease">arrow_downward</mat-icon>
+            <div style="width: 20px;"></div>
+            <p [ngStyle]="{'color': priceColor}" style="font-size: 35px; margin: 0px">{{totalChangeAmount}}%</p>
+        </div>
     </div>
     <hr>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap">

@@ -11,11 +11,12 @@ import { StockListsService } from './stock-lists.service';
 import { ListDetailComponent } from './list-detail/list-detail.component';
 import { RouterModule } from '@angular/router';
 import { StockComponent } from './stock/stock.component';
+import { AddStockComponent } from './add-stock/add-stock.component';
 
 
 
 @NgModule({
-  declarations: [StockListsComponent, NewListComponent, ListDetailComponent, StockComponent],
+  declarations: [StockListsComponent, NewListComponent, ListDetailComponent, StockComponent, AddStockComponent],
   imports: [
     CommonModule,
     MatIconModule,

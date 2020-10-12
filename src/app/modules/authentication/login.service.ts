@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class LoginService {
   loggedIn = false;
   user = new Subject<User>();
-  loginError = new Subject<string>();
+  loginError = new Subject<boolean>();
   userInformation: User;
 
   constructor(private http: HttpClient) {  }
@@ -29,8 +29,7 @@ export class LoginService {
           localStorage.setItem('token', res.token);
           this.user.next(this.userInformation);
         } else {
-          this.loggedIn = false;
-          this.loginError.next('Login error');
+          this.loginError.next(true);
         }
       });
   }
