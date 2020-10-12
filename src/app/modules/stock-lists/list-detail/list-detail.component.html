@@ -5,7 +5,7 @@
             <button mat-raised-button (click)="add()" class="button-add">Add new stock</button>
             <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 20px">{{listLength}} stocks</p>
             <p style="padding-right: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
-            <mat-icon style="font-size: 35px;" [ngStyle]="{'color': priceColor}" *ngIf="priceIncrease">arrow_upward</mat-icon>
+            <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="priceIncrease">arrow_upward</mat-icon>
             <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="!priceIncrease">arrow_downward</mat-icon>
             <div style="width: 20px;"></div>
             <p [ngStyle]="{'color': priceColor}" style="font-size: 35px; margin: 0px">{{totalChangeAmount}}%</p>
@@ -13,7 +13,7 @@
     </div>
     <hr>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
-        <div *ngFor="let stock of stocks" style="margin-right: 5%">
+        <div *ngFor="let stock of stocks" style="margin-right: 5%; margin-bottom: 25px">
             <app-stock [stock]="stock"></app-stock>
         </div>
     </div>
