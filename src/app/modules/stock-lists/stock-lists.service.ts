@@ -48,4 +48,19 @@ export class StockListsService {
       return resData;
     }));
   }
+
+  addNewStockToList(stock: string, listId: string) {
+    return this.http.post('http://localhost:3000/watchlist/' + listId, {
+      listNumber: listId,
+      stockSymbol: stock
+    }, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+      let resData;
+      resData = {...res};
+      return resData;
+    }));
+  }
 }

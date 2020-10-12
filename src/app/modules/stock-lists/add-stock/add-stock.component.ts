@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { StockListsService } from '../stock-lists.service';
 
 @Component({
   selector: 'app-add-stock',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddStockComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stockListsService: StockListsService) { }
 
   ngOnInit() {
   }
 
+  addStockToList(f: NgForm) {
+    this.stockListsService.addNewList(f.value.listName).subscribe(res => {
+      
+    });
+  }
 }
