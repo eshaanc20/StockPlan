@@ -1,13 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GoalsListsComponent } from './goals-lists/goals-lists.component';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { GoalListsComponent } from './goal-lists/goal-lists.component';
 
 
 
 @NgModule({
-  declarations: [GoalsListsComponent],
+  declarations: [GoalListsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatInputModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule
+  ],
+  exports: [
+    GoalListsComponent
   ]
 })
 export class GoalsModule { }
