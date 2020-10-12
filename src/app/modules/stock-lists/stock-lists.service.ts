@@ -51,7 +51,6 @@ export class StockListsService {
 
   addNewStockToList(stock: string, listId: string) {
     return this.http.post('http://localhost:3000/watchlist/' + listId, {
-      listNumber: listId,
       stockSymbol: stock
     }, {
       headers: {

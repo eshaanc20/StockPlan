@@ -2,8 +2,9 @@
     <div style="display: flex; justify-content: space-between; padding-top: 25px">
         <p style="font-size: 35px; margin: 0px">{{listName}}</p>
         <div style="display: flex;">
-            <p style="font-size: 35px; color: gray; margin: 0px">{{listLength}} stocks</p>
-            <p style="padding-right: 5px; padding-left: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
+            <button mat-raised-button (click)="add()" class="button-add">Add new stock</button>
+            <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 20px">{{listLength}} stocks</p>
+            <p style="padding-right: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
             <mat-icon style="font-size: 35px;" [ngStyle]="{'color': priceColor}" *ngIf="priceIncrease">arrow_upward</mat-icon>
             <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="!priceIncrease">arrow_downward</mat-icon>
             <div style="width: 20px;"></div>

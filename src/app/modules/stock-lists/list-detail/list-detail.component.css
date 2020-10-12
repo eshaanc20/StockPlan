@@ -3,3 +3,9 @@
     padding-right: 50px;
     padding-left: 50px;
 }
+
+.button-add {
+    background-color: #4286eb;
+    color: white;
+    border-radius: 20px;
+}

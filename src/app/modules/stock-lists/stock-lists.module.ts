@@ -31,7 +31,8 @@ import { AddStockComponent } from './add-stock/add-stock.component';
   exports: [StockListsComponent],
   providers: [LoginService, StockListsService],
   entryComponents: [
-    NewListComponent
+    NewListComponent,
+    AddStockComponent
   ]
 })
 export class StockListsModule { }

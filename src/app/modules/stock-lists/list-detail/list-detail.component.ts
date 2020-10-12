@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
+import { AddStockComponent } from '../add-stock/add-stock.component';
 import { StockListsService } from '../stock-lists.service';
 
 @Component({
@@ -17,8 +19,13 @@ export class ListDetailComponent implements OnInit {
   totalChangeAmount: number;
   priceColor: string;
   priceIncrease: boolean;
+  private newDialog: any;
 
-  constructor(private route: ActivatedRoute, private stockListService: StockListsService, private loginService: LoginService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private stockListService: StockListsService,
+    private loginService: LoginService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -59,5 +66,8 @@ export class ListDetailComponent implements OnInit {
       }
     });
   }
-  
+
+  add() {
+    this.newDialog = this.dialog.open(AddStockComponent);
+  }
 }
