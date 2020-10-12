@@ -1,0 +1,23 @@
+.add-list-form-component{
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 25px;
+}
+
+.title{
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button{
+    background-color: #1468e7;
+    color: white;
+    width: 100px;
+    margin: auto;
+}
+
+.new-list-form{
+    display: flex;
+    flex-direction: column;
+}

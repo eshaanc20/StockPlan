@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from './User';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 export class LoginService {
   loggedIn = false;
   user = new Subject<User>();
-  loginError = new Subject<string>();
+  loginError = new Subject<boolean>();
+  userInformation: User;
 
   constructor(private http: HttpClient) {  }
 
@@ -24,10 +25,11 @@ export class LoginService {
       .subscribe(res => {
         if (res.login) {
           this.loggedIn = true;
-          this.user.next(new User(res.firstName, res.lastName, res.email, res.token));
+          this.userInformation = new User(res.firstName, res.lastName, res.email, res.token, res.newToken);
+          localStorage.setItem('token', res.token);
+          this.user.next(this.userInformation);
         } else {
-          this.loggedIn = false;
-          this.loginError.next('Login error');
+          this.loginError.next(true);
         }
       });
   }
@@ -39,5 +41,39 @@ export class LoginService {
       email: newEmail,
       password: newPassword
     });
+  }
+
+  verifyToken(previousToken: string) {
+    this.http.post('http://localhost:3000/user/verify-token', {token: previousToken})
+    .pipe(map(res => {
+      let resData;
+      resData = {...res};
+      return resData;
+    }))
+    .subscribe(res => {
+      if (res.tokenStatus) {
+        this.loggedIn = true;
+        this.userInformation = new User(res.firstName, res.lastName, res.email, res.token, res.newToken);
+        this.user.next(this.userInformation);
+      } else {
+        this.loggedIn = false;
+      }
+    });
+  }
+
+  getLoginStatus() {
+    return this.loggedIn;
+  }
+  
+  getLoginInformation() {
+    if (this.loggedIn) {
+      return this.userInformation;
+    }
+  }
+
+  getLoginToken() {
+    if (this.loggedIn) {
+      return this.userInformation.getToken();
+    }
   }
 }

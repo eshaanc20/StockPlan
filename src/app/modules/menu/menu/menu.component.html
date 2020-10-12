@@ -1,4 +1,16 @@
-<mat-toolbar class="menu-toolbar">
-    <p class='testing'>StockPlan</p>
-    <button mat-raised-button (click)="open()">Sign up</button>
+<mat-toolbar [ngClass]="{'menu-toolbar': homepage, 'menu-toolbar-2': !homepage}">
+    <p *ngIf="homepage">StockPlan</p>
+    <p *ngIf="!homepage">StockPlan <span style="color: lightgray">| Plan your investments</span></p>
+    <div *ngIf="!loggedIn && homepage">
+        <button mat-raised-button (click)="open()">Sign up</button>
+    </div>
+    <div *ngIf="loggedIn && homepage">
+        <button mat-raised-button (click)="login()">Logged in as {{userFirstName}}</button>
+    </div>
+    <div *ngIf="loggedIn && !homepage" style="display: flex;">
+        <div style="margin-top: 19px; margin-right: 15px;">
+            <mat-icon style="font-size: 35px;">account_circle</mat-icon>
+        </div>
+        <p>{{userFirstName}}</p>
+    </div>
 </mat-toolbar>

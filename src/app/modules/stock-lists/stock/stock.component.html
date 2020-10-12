@@ -1,0 +1,33 @@
+<div class="stock-component">
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <p style="margin: 0px; font-size: 25px;">{{stock.symbol}}</p>
+        </div>
+        <div style="text-align: right;">
+            <p style="margin: 0px; font-size: 25px">${{stock.current}}</p>
+            <div style="display: flex; justify-content: flex-end;" [ngStyle]="{'color': priceColor}">
+                <mat-icon style="font-size: 26px" *ngIf="priceIncrease">arrow_upward</mat-icon>
+                <mat-icon style="font-size: 26px" *ngIf="!priceIncrease">arrow_downward</mat-icon>
+                <div style="width: 5px"></div>
+                <p style="margin: 0px; font-size: 20px">${{stock.amountChange}}</p>
+                <p style="margin: 0px; padding-right: 2px; padding-left: 2px; font-size: 18px">|</p>
+                <p style="margin: 0px; font-size: 20px">{{stock.percentChange}}%</p>
+            </div>
+        </div>
+    </div>
+    <p style="margin-bottom: 0px; margin-top: 15px;">Open: {{stock.open}}</p>
+    <div style="display: flex; justify-content: space-between;">
+        <p style="margin: 0px">Low: {{stock.low}}</p>
+        <p style="margin: 0px">High: {{stock.high}}</p>
+    </div>
+    <p style="margin: 0px;">52 Week High: {{stock.high52Week}}</p>
+    <p style="margin: 0px">52 Week Low: {{stock.low52Week}}</p>
+    <div style="display: flex; justify-content: space-between;">
+        <p style="margin-bottom: 0px">Market Cap: {{marketCap}} {{marketCapDetail}}</p>
+        <p style="margin-bottom: 0px">EPS: {{stock.eps}}</p>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <p style="margin: 0px">P/E: {{stock.profitEarningRatio}}</p>
+        <p style="margin: 0px">Dividend Yield: {{stock.dividendYield}}%</p>
+    </div>
+</div>

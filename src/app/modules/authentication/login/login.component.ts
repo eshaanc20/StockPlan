@@ -13,24 +13,26 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loggedIn = false;
   user: User;
-  error: string;
+  error = false;
 
   constructor(private loginService: LoginService, private router: Router) {
-    loginService.user.subscribe(res => {
-      this.loggedIn = true;
-      this.user = res;
-      this.error = '';
-      this.router.navigate(['/dashboard']);
-    });
-    loginService.loginError.subscribe(err => {
-      this.error = err;
-    });
   }
 
   ngOnInit() {
+    this.loginService.user.subscribe(res => {
+      this.loggedIn = true;
+      this.user = res;
+      if (res.getNewToken()) {
+        this.router.navigate(['/dashboard']);
+      }
+    });
+    this.loginService.loginError.subscribe(err => {
+      this.error = true;
+    });
   }
 
   onLogin(f: NgForm) {
+    this.error = false;
     this.loginService.login(f.value.email, f.value.password);
   }
 }

@@ -1,0 +1,15 @@
+<div>
+    <div style="border-bottom: 1px solid lightgray">
+        <div class="navigation-title">
+            <p>Stock Lists</p>
+            <button mat-icon-button class="navigation-add-button" (click)="addNewList()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div *ngFor="let list of stockLists">
+        <div>
+            <a mat-button class="navigation-lists-button" [routerLink]="['/dashboard/list/'+list.listNumber]">{{list.name}}</a>
+        </div>
+    </div>
+</div>

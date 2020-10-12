@@ -1,13 +1,15 @@
 <div class='login-form-component'>
     <p class='title1'>Sign in</p>
+    <p style="color: red" *ngIf="error">Password is invalid</p>
     <form class='login-form' #f='ngForm' (ngSubmit)='onLogin(f)'>
-        <mat-form-field appearance='fill'>
+        <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput ngModel name='email'>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput ngModel type='password' name='password'>
+            <input matInput ngModel type="password" name="password">
+            <mat-error>Invalid password</mat-error>
         </mat-form-field>
         <button mat-raised-button type='submit' class='button1'>Sign in</button>
     </form>
