@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <div style="display: flex; justify-content: space-between; margin-top: 15px">
-        <p style="margin: 0px">Open: {{stock.open}}</p>
+    <p style="margin-bottom: 0px; margin-top: 15px;">Open: {{stock.open}}</p>
+    <div style="display: flex; justify-content: space-between;">
         <p style="margin: 0px">Low: {{stock.low}}</p>
         <p style="margin: 0px">High: {{stock.high}}</p>
     </div>
@@ -24,10 +24,10 @@
     <p style="margin: 0px">52 Week Low: {{stock.low52Week}}</p>
     <div style="display: flex; justify-content: space-between;">
         <p style="margin-bottom: 0px">Market Cap: {{marketCap}} {{marketCapDetail}}</p>
-        <p style="margin-bottom: 0px">P/E Ratio: {{stock.profitEarningRatio}}</p>
+        <p style="margin-bottom: 0px">EPS: {{stock.eps}}</p>
     </div>
     <div style="display: flex; justify-content: space-between;">
-        <p style="margin: 0px">EPS: {{stock.eps}}</p>
+        <p style="margin: 0px">P/E: {{stock.profitEarningRatio}}</p>
         <p style="margin: 0px">Dividend Yield: {{stock.dividendYield}}%</p>
     </div>
 </div>
