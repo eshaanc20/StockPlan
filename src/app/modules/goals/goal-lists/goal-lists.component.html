@@ -9,7 +9,7 @@
     </div>
     <div>
         <div *ngFor="let list of goalLists">
-            <a mat-button class="navigation-goals-button" [routerLink]="['/dashboard/goals/'+list.listNumber]"></a>
+            <a mat-button class="navigation-goals-button" [routerLink]="['/dashboard/goals/'+list.listNumber]">{{list.name}}</a>
         </div>
     </div>
 </div>
