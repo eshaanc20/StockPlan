@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { LoginService } from '../../authentication/login.service';
 import { StockListsService } from '../../stock-lists/stock-lists.service';
 import { GoalsService } from '../goals.service';
+import { NewGoalsListComponent } from '../new-goals-list/new-goals-list.component';
 
 @Component({
   selector: 'app-goal-lists',
@@ -30,6 +31,7 @@ export class GoalListsComponent implements OnInit {
   }
 
   addNewList() {
+    this.newDialog = this.dialog.open(NewGoalsListComponent);
   }
 
 }

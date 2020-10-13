@@ -4,11 +4,13 @@ import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, Ma
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { GoalListsComponent } from './goal-lists/goal-lists.component';
+import { FormsModule } from '@angular/forms';
+import { NewGoalsListComponent } from './new-goals-list/new-goals-list.component';
 
 
 
 @NgModule({
-  declarations: [GoalListsComponent],
+  declarations: [GoalListsComponent, NewGoalsListComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -17,10 +19,14 @@ import { GoalListsComponent } from './goal-lists/goal-lists.component';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     GoalListsComponent
+  ],
+  entryComponents: [
+    NewGoalsListComponent
   ]
 })
 export class GoalsModule { }

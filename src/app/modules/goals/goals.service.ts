@@ -21,4 +21,18 @@ export class GoalsService {
         return resData;
       }));
   }
+
+  addNewList(name: string) {
+    return this.http.post('http://localhost:3000/goal/list/new', {
+      listName: name
+    }, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+        let resData;
+        resData = {...res};
+        return resData;
+      }));
+  }
 }
