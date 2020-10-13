@@ -12,8 +12,8 @@
         </div>
     </div>
     <hr>
-    <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px; justify-content: space-around">
-        <div *ngFor="let stock of stocks">
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
+        <div *ngFor="let stock of stocks" style="margin-right: 30px">
             <app-stock [stock]="stock"></app-stock>
         </div>
     </div>
