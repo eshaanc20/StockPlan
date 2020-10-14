@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { GoalListsComponent } from './goal-lists/goal-lists.component';
 import { FormsModule } from '@angular/forms';
 import { NewGoalsListComponent } from './new-goals-list/new-goals-list.component';
+import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.component';
 
 
 
 @NgModule({
-  declarations: [GoalListsComponent, NewGoalsListComponent],
+  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent],
   imports: [
     CommonModule,
     MatInputModule,
