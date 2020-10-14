@@ -1,0 +1,11 @@
+.goals-detail {
+    height: 100%;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.button-add {
+    background-color: rgb(30, 156, 156);
+    color: white;
+    border-radius: 20px;
+}

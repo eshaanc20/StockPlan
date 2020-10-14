@@ -12,6 +12,8 @@ import { GoalsService } from '../goals.service';
 })
 export class GoalsListDetailComponent implements OnInit {
   listId: string;
+  listName: string;
+  listLength: number;
   goalsList: GoalsInformationFormat;
 
   constructor(
@@ -24,10 +26,21 @@ export class GoalsListDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
-      this.goals.getGoalsDetail(this.listId).subscribe(res => {
-        this.goalsList = res.goalsDetail;
-      })
-    })
+      if (!this.loginService.getLoginStatus()) {
+        this.loginService.user.subscribe(res => {
+          this.goals.getGoalsDetail(this.listId).subscribe(list => {
+            this.listName = list.name;
+            this.goalsList = list.goalsDetail;
+            this.listLength = list.goalsDetail.length;
+          });
+        });
+      } else {
+        this.goals.getGoalsDetail(this.listId).subscribe(list => {
+          this.listName = list.name;
+          this.goalsList = list.goalsDetail;
+        });
+      }
+    });
   }
 
   
