@@ -16,3 +16,14 @@ export interface StockInformationFormat {
     profitEarningRatio: number;
     betaValue: number;
   }
+
+export interface GoalsInformationFormat {
+  title: string;
+  goalType: string;
+  description: string;
+  stock: string;
+  goalCondition: any;
+  validUntil: string;
+  listNumber: number;
+  userId: string;
+}

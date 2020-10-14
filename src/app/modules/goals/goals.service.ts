@@ -35,4 +35,16 @@ export class GoalsService {
         return resData;
       }));
   }
+
+  getGoalsDetail(listId: string) {
+    return this.http.get('http://localhost:3000/goal/list/' + listId, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+      let resData;
+      resData = {...res};
+      return resData;
+    }));
+  }
 }
