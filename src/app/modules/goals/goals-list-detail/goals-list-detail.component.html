@@ -2,7 +2,7 @@
     <div style="display: flex; justify-content: space-between; padding-top: 25px; flex-wrap: wrap;">
         <p style="font-size: 35px; margin: 0px">{{listName}}</p>
         <div style="display: flex; flex-wrap: wrap;">
-            <button mat-raised-button class="button-add">Add new goal</button>
+            <button mat-raised-button class="button-add" (click)="addNewGoal()">Add new goal</button>
             <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 20px">{{listLength}} goals</p>
         </div>
     </div>

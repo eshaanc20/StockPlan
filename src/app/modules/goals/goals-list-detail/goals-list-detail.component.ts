@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
 import { GoalsInformationFormat } from '../../interfaces';
+import { AddGoalComponent } from '../add-goal/add-goal.component';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class GoalsListDetailComponent implements OnInit {
   listName: string;
   listLength: number;
   goalsList: GoalsInformationFormat;
+  private newDialog: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,5 +45,8 @@ export class GoalsListDetailComponent implements OnInit {
     });
   }
 
-  
+  addNewGoal() {
+    this.newDialog = this.dialog.open(AddGoalComponent);
+  }
+
 }

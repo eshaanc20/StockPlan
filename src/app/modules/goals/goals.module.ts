@@ -7,11 +7,12 @@ import { GoalListsComponent } from './goal-lists/goal-lists.component';
 import { FormsModule } from '@angular/forms';
 import { NewGoalsListComponent } from './new-goals-list/new-goals-list.component';
 import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.component';
+import { AddGoalComponent } from './add-goal/add-goal.component';
 
 
 
 @NgModule({
-  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent],
+  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent, AddGoalComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -27,7 +28,8 @@ import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.
     GoalListsComponent
   ],
   entryComponents: [
-    NewGoalsListComponent
+    NewGoalsListComponent,
+    AddGoalComponent
   ]
 })
 export class GoalsModule { }

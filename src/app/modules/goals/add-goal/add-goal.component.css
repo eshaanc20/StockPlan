@@ -1,0 +1,22 @@
+.add-goal-form-component{
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-bottom: 25px;
+}
+
+.title{
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button{
+    background-color: rgb(30, 156, 156);
+    color: white;
+    margin: auto;
+}
+
+.new-goal-form{
+    display: flex;
+    flex-direction: column;
+}

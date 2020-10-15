@@ -1,0 +1,10 @@
+<div class='add-goal-form-component'>
+    <p class="title">Add New Goal</p>
+    <form class='new-goal-form' #f='ngForm' (submit)="addGoalToList(f)">
+        <mat-form-field appearance='outline' style="width:250px">
+            <mat-label>Title</mat-label>
+            <input matInput ngModel name='goalTitle'>
+        </mat-form-field>
+        <button mat-raised-button type='submit' class='button'>Add Goal to List</button>
+    </form>
+</div>
