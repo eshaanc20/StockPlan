@@ -40,6 +40,7 @@ export class GoalsListDetailComponent implements OnInit {
         this.goals.getGoalsDetail(this.listId).subscribe(list => {
           this.listName = list.name;
           this.goalsList = list.goalsDetail;
+          this.listLength = list.goalsDetail.length;
         });
       }
     });
@@ -48,5 +49,4 @@ export class GoalsListDetailComponent implements OnInit {
   addNewGoal() {
     this.newDialog = this.dialog.open(AddGoalComponent);
   }
-
 }

@@ -1,10 +1,32 @@
 <div class='add-goal-form-component'>
     <p class="title">Add New Goal</p>
-    <form class='new-goal-form' #f='ngForm' (submit)="addGoalToList(f)">
-        <mat-form-field appearance='outline' style="width:250px">
-            <mat-label>Title</mat-label>
-            <input matInput ngModel name='goalTitle'>
-        </mat-form-field>
-        <button mat-raised-button type='submit' class='button'>Add Goal to List</button>
+    <form class='new-goal-form'>
+        <div style="display: flex; justify-content: space-between;">
+            <mat-form-field appearance='outline'>
+                <mat-label>Title</mat-label>
+                <input matInput ngModel [formControl]="title">
+            </mat-form-field>
+            <mat-form-field appearance='outline'>
+                <mat-label>Stock</mat-label>
+                <input matInput ngModel [formControl]="stock">
+            </mat-form-field>
+        </div>
+        <div style="display: flex">
+            <mat-form-field appearance='outline'>
+                <mat-label>Description</mat-label>
+                <textarea matInput ngModel style="height: 100px;" [formControl]="description"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance='outline'>
+                <mat-label>Type</mat-label>
+                <mat-select [formControl]="goalType">
+                    <mat-option value="buy">Buy</mat-option>
+                    <mat-option value="sell">Sell</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div style="display: flex">
+            <button mat-button (click)="close()">Close</button>
+            <button mat-raised-button type='submit' class='button'>Add Goal to List</button>
+        </div>
     </form>
 </div>

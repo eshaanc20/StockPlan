@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -9,8 +10,15 @@ import { GoalsService } from '../goals.service';
 })
 export class AddGoalComponent implements OnInit {
   progress = false;
+  title = new FormControl('');
+  stock = new FormControl('');
+  goalType = new FormControl('');
+  description = new FormControl('');
 
-  constructor(private goals: GoalsService) { }
+  constructor(
+    private goals: GoalsService,
+    private dialog: MatDialogRef<AddGoalComponent>,
+  ) { }
 
   ngOnInit() {
   }
@@ -22,4 +30,7 @@ export class AddGoalComponent implements OnInit {
     });
   }
 
+  close() {
+    this.dialog.close();
+  }
 }

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { GoalListsComponent } from './goal-lists/goal-lists.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewGoalsListComponent } from './new-goals-list/new-goals-list.component';
 import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.component';
 import { AddGoalComponent } from './add-goal/add-goal.component';
@@ -22,7 +22,9 @@ import { AddGoalComponent } from './add-goal/add-goal.component';
     MatButtonModule,
     MatIconModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   exports: [
     GoalListsComponent
