@@ -48,7 +48,16 @@ export class GoalsService {
     }));
   }
 
-  addGoal(listId: string) {
+  addGoal(
+    listId: string,
+    title: string,
+    goalType: string,
+    description: string,
+    stock: string,
+    validUntil: string,
+    goalParameter: string,
+    targetNumber: number
+    ) {
     return this.http.post('http://localhost:3000/goal/list/' + listId, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()

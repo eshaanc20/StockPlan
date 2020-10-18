@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewGoalsListComponent } from './new-goals-list/new-goals-list.component';
 import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.component';
 import { AddGoalComponent } from './add-goal/add-goal.component';
+import { LoginService } from '../authentication/login.service';
+import { GoalsService } from './goals.service';
 
 
 
@@ -31,6 +33,7 @@ import { AddGoalComponent } from './add-goal/add-goal.component';
   exports: [
     GoalListsComponent
   ],
+  providers: [LoginService, GoalsService],
   entryComponents: [
     NewGoalsListComponent,
     AddGoalComponent

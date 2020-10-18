@@ -34,7 +34,7 @@ export class GoalsListDetailComponent implements OnInit {
             this.listName = list.name;
             this.goalsList = list.goalsDetail;
             this.listLength = list.goalsDetail.length;
-            this.newDialog = this.dialog.open(AddGoalComponent);
+            this.newDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
           });
         });
       } else {
@@ -42,13 +42,13 @@ export class GoalsListDetailComponent implements OnInit {
           this.listName = list.name;
           this.goalsList = list.goalsDetail;
           this.listLength = list.goalsDetail.length;
-          this.newDialog = this.dialog.open(AddGoalComponent);
+          this.newDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
         });
       }
     });
   }
 
   addNewGoal() {
-    this.newDialog = this.dialog.open(AddGoalComponent);
+    this.newDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
   }
 }
