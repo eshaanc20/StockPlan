@@ -1,17 +1,19 @@
 .add-goal-form-component{
-    padding-right: 35px;
-    padding-left: 35px;
-    padding-bottom: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 .title{
     font-size: 24px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 0px;
 }
 
 .button{
-    background-color: rgb(30, 156, 156);
+    background-color: rgb(29, 157, 189);
     color: white;
     margin: auto;
 }

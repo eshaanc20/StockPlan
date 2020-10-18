@@ -14,6 +14,7 @@ export class AddGoalComponent implements OnInit {
   stock = new FormControl('');
   goalType = new FormControl('');
   description = new FormControl('');
+  targetNumber = new FormControl('');
 
   constructor(
     private goals: GoalsService,

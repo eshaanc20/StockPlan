@@ -1,7 +1,7 @@
 <div class='add-goal-form-component'>
     <p class="title">Add New Goal</p>
     <form class='new-goal-form'>
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; margin-top: 0px">
             <mat-form-field appearance='outline'>
                 <mat-label>Title</mat-label>
                 <input matInput ngModel [formControl]="title">
@@ -11,22 +11,45 @@
                 <input matInput ngModel [formControl]="stock">
             </mat-form-field>
         </div>
-        <div style="display: flex">
+        <div style="display: flex; justify-content: space-between; margin-top: 0px">
             <mat-form-field appearance='outline'>
                 <mat-label>Description</mat-label>
-                <textarea matInput ngModel style="height: 100px;" [formControl]="description"></textarea>
+                <textarea matInput ngModel style="height: 140px;" [formControl]="description"></textarea>
             </mat-form-field>
+            <div style="display: flex; flex-direction: column; width: 200px; margin-left: 20px; margin-top: 15px">
+                <mat-form-field appearance='outline'>
+                    <mat-label>Type</mat-label>
+                    <mat-select [formControl]="goalType">
+                        <mat-option value="buy">Buy</mat-option>
+                        <mat-option value="sell">Sell</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance='outline'>
+                    <mat-label>Valid until</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 0px;">
             <mat-form-field appearance='outline'>
-                <mat-label>Type</mat-label>
+                <mat-label>Goal Parameter</mat-label>
                 <mat-select [formControl]="goalType">
-                    <mat-option value="buy">Buy</mat-option>
-                    <mat-option value="sell">Sell</mat-option>
+                    <mat-option value="buy">Stock Price</mat-option>
                 </mat-select>
             </mat-form-field>
+            <mat-form-field appearance='outline'>
+                <mat-label>Target Number</mat-label>
+                <input matInput ngModel [formControl]="targetNumber">
+            </mat-form-field>
         </div>
-        <div style="display: flex">
-            <button mat-button (click)="close()">Close</button>
-            <button mat-raised-button type='submit' class='button'>Add Goal to List</button>
+        <div style="display: flex; justify-content: flex-end;">
+            <div></div>
+            <div>
+                <button mat-button (click)="close()">Close</button>
+                <button mat-raised-button type='submit' class='button' style="margin-left: 10px">Add Goal to List</button>
+            </div>
         </div>
     </form>
 </div>
