@@ -51,14 +51,21 @@ export class GoalsService {
   addGoal(
     listId: string,
     title: string,
-    goalType: string,
+    type: string,
     description: string,
     stock: string,
     validUntil: string,
-    goalParameter: string,
-    targetNumber: number
-    ) {
+    parameter: string,
+    targetNumber: number) {
     return this.http.post('http://localhost:3000/goal/list/' + listId, {
+      goalTitle: title,
+      goalType: type,
+      goalDescription: description,
+      stockSymbol: stock,
+      validUntilDate: validUntil,
+      goalParameter: parameter,
+      goalTargetNumber: targetNumber
+    }, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }

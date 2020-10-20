@@ -17,6 +17,7 @@ export class AddGoalComponent implements OnInit {
   validUntil = new FormControl('');
   goalParameter = new FormControl('');
   targetNumber = new FormControl('');
+  currentList: string;
 
   constructor(
     private goals: GoalsService,
@@ -25,13 +26,19 @@ export class AddGoalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.currentList = this.data.listNumber;
   }
 
-  addGoalToList(f: NgForm) {
+  addGoalToList() {
     this.progress = true;
-    // this.goals.addGoal(f.value.goalTitle).subscribe(res => {
-    //   this.progress = false;
-    // });
+    let dateValidUntil = this.validUntil.value.toString();
+    const dateArray = dateValidUntil.split(' ');
+    const finalDateArray = dateArray.slice(1, 4);
+    dateValidUntil = finalDateArray.join(' ');
+    this.goals.addGoal(this.currentList, this.title.value, this.goalType.value, this.description.value,
+      this.stock.value, dateValidUntil, this.goalParameter.value, this.targetNumber.value).subscribe(res => {
+      this.progress = false;
+    });
   }
 
   close() {
