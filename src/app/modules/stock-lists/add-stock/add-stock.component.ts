@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { StockListsService } from '../stock-lists.service';
 
 @Component({
@@ -12,7 +12,11 @@ export class AddStockComponent implements OnInit {
   currentList: string;
   progress = false;
 
-  constructor(private stockListsService: StockListsService, @Inject(MAT_DIALOG_DATA) public data: {listNumber: string}) { }
+  constructor(
+    private stockListsService: StockListsService,
+    @Inject(MAT_DIALOG_DATA) public data: {listNumber: string},
+    private dialog: MatDialogRef<AddStockComponent>
+  ) { }
 
   ngOnInit() {
     this.currentList = this.data.listNumber;
@@ -22,6 +26,11 @@ export class AddStockComponent implements OnInit {
     this.progress = true;
     this.stockListsService.addNewStockToList(this.currentList, f.value.stockSymbol).subscribe(res => {
       this.progress = false;
+      this.dialog.close();
     });
+  }
+
+  close() {
+    this.dialog.close();
   }
 }

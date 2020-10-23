@@ -15,7 +15,7 @@ export class GoalComponent implements OnInit {
   ngOnInit() {
     console.log(this.goal.progress)
     if (this.goal.goalCompleted) {
-      this.status = 'completed';
+      this.status = 'Completed';
     } else {
       this.status = 'Active';
     }

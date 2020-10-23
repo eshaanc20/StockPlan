@@ -8,7 +8,7 @@
     </div>
     <hr>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
-        <div *ngFor="let goalDetail of goalsList">
+        <div *ngFor="let goalDetail of goalsList" style="margin-right: 30px">
             <app-goal [goal]="goalDetail"></app-goal>
         </div>
     </div>

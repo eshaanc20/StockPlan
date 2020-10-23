@@ -11,7 +11,7 @@ export class GoalsService {
   constructor(private http: HttpClient, private loginService: LoginService) { }
 
   getAllLists() {
-    return this.http.get('http://localhost:3000/goal/list/all', {
+    return this.http.get('http://localhost:3000/goals/list/all', {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -23,7 +23,7 @@ export class GoalsService {
   }
 
   addNewList(name: string) {
-    return this.http.post('http://localhost:3000/goal/list/new', {
+    return this.http.post('http://localhost:3000/goals/list/new', {
       listName: name
     }, {
       headers: {
@@ -37,7 +37,7 @@ export class GoalsService {
   }
 
   getGoalsDetail(listId: string) {
-    return this.http.get('http://localhost:3000/goal/list/' + listId, {
+    return this.http.get('http://localhost:3000/goals/list/' + listId, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -57,7 +57,7 @@ export class GoalsService {
     validUntil: string,
     parameter: string,
     targetNumber: number) {
-    return this.http.post('http://localhost:3000/goal/list/' + listId, {
+    return this.http.post('http://localhost:3000/goals/list/' + listId, {
       goalTitle: title,
       goalType: type,
       goalDescription: description,
