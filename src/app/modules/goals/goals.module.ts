@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule, MatSelectModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { GoalListsComponent } from './goal-lists/goal-lists.component';
@@ -10,11 +10,13 @@ import { GoalsListDetailComponent } from './goals-list-detail/goals-list-detail.
 import { AddGoalComponent } from './add-goal/add-goal.component';
 import { LoginService } from '../authentication/login.service';
 import { GoalsService } from './goals.service';
+import { GoalComponent } from './goal/goal.component';
+import { ProgressComponent } from './progress/progress.component';
 
 
 
 @NgModule({
-  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent, AddGoalComponent],
+  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent, AddGoalComponent, GoalComponent, ProgressComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -28,7 +30,8 @@ import { GoalsService } from './goals.service';
     ReactiveFormsModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     GoalListsComponent

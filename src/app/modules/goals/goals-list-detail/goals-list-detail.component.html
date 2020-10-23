@@ -8,5 +8,8 @@
     </div>
     <hr>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
+        <div *ngFor="let goalDetail of goalsList">
+            <app-goal [goal]="goalDetail"></app-goal>
+        </div>
     </div>
 </div>

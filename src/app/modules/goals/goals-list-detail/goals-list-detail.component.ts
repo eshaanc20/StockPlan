@@ -15,7 +15,7 @@ export class GoalsListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  goalsList: GoalsInformationFormat;
+  goalsList: [GoalsInformationFormat];
   private newDialog: any;
 
   constructor(
