@@ -13,6 +13,7 @@ export class GoalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.goal.progress)
     if (this.goal.goalCompleted) {
       this.status = 'completed';
     } else {

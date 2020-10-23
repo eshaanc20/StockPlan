@@ -27,6 +27,6 @@ export interface GoalsInformationFormat {
   validUntil: string;
   goalCompleted: boolean;
   goalCompletedDate: string;
-  listNumber: number;
-  userId: string;
+  currentValue: number;
+  progress: number;
 }

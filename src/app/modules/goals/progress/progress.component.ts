@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./progress.component.css']
 })
 export class ProgressComponent implements OnInit {
-  // @Input() progressValue: number;
-  progressValue = 90;
+  @Input() progressValue: number;
+  @Input() text: string;
 
   constructor() { }
 
