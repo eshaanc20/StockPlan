@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockListsComponent } from './stock-lists/stock-lists.component';
-import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material';
 import { NewListComponent } from './new-list/new-list.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +27,7 @@ import { AddStockComponent } from './add-stock/add-stock.component';
     HttpClientModule,
     MatFormFieldModule,
     RouterModule,
+    MatProgressSpinnerModule
   ],
   exports: [StockListsComponent],
   providers: [LoginService, StockListsService],

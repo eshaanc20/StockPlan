@@ -12,6 +12,9 @@
         </div>
     </div>
     <hr>
+    <div style="display: flex; justify-content: center; margin-top: 100px; width: 100%" *ngIf="progress">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
         <div *ngFor="let stock of stocks" style="margin-right: 30px">
             <app-stock [stock]="stock"></app-stock>

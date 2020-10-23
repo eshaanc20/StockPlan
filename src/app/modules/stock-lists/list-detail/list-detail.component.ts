@@ -19,6 +19,7 @@ export class ListDetailComponent implements OnInit {
   totalChangeAmount: number;
   priceColor: string;
   priceIncrease: boolean;
+  progress: boolean;
   private newDialog: any;
 
   constructor(
@@ -28,11 +29,13 @@ export class ListDetailComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.progress = true;
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
           this.stockListService.getStockDetails(this.listId).subscribe(list => {
+            this.progress = false;
             this.listName = list.name;
             this.listLength = list.length;
             this.stocks = list.stockDetail;
@@ -49,6 +52,7 @@ export class ListDetailComponent implements OnInit {
         });
       } else {
         this.stockListService.getStockDetails(this.listId).subscribe(list => {
+          this.progress = false;
           this.listName = list.name;
           this.listLength = list.length;
           this.stocks = list.stockDetail;
