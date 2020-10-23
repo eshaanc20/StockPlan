@@ -22,8 +22,11 @@ export interface GoalsInformationFormat {
   goalType: string;
   description: string;
   stock: string;
-  goalCondition: any;
+  goalParameter: string;
+  goalTargetNumber: string;
   validUntil: string;
+  goalCompleted: boolean;
+  goalCompletedDate: string;
   listNumber: number;
   userId: string;
 }

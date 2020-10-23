@@ -8,10 +8,16 @@ import { GoalsInformationFormat } from '../../interfaces';
 })
 export class GoalComponent implements OnInit {
   @Input() goal: GoalsInformationFormat;
+  status: string;
 
   constructor() { }
 
   ngOnInit() {
+    if (this.goal.goalCompleted) {
+      this.status = 'completed';
+    } else {
+      this.status = 'Active';
+    }
   }
 
 }
