@@ -29,4 +29,5 @@ export interface GoalsInformationFormat {
   goalCompletedDate: string;
   currentValue: number;
   progress: number;
+  goalId: string;
 }

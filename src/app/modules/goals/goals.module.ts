@@ -12,11 +12,20 @@ import { LoginService } from '../authentication/login.service';
 import { GoalsService } from './goals.service';
 import { GoalComponent } from './goal/goal.component';
 import { ProgressComponent } from './progress/progress.component';
+import { EditGoalsComponent } from './edit-goals/edit-goals.component';
 
 
 
 @NgModule({
-  declarations: [GoalListsComponent, NewGoalsListComponent, GoalsListDetailComponent, AddGoalComponent, GoalComponent, ProgressComponent],
+  declarations: [
+    GoalListsComponent,
+    NewGoalsListComponent,
+    GoalsListDetailComponent,
+    AddGoalComponent,
+    GoalComponent,
+    ProgressComponent,
+    EditGoalsComponent
+  ],
   imports: [
     CommonModule,
     MatInputModule,
@@ -39,7 +48,8 @@ import { ProgressComponent } from './progress/progress.component';
   providers: [LoginService, GoalsService],
   entryComponents: [
     NewGoalsListComponent,
-    AddGoalComponent
+    AddGoalComponent,
+    EditGoalsComponent
   ]
 })
 export class GoalsModule { }

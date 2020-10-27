@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
+import { StockInformationFormat } from '../../interfaces';
 import { AddStockComponent } from '../add-stock/add-stock.component';
 import { StockListsService } from '../stock-lists.service';
 
@@ -14,7 +15,7 @@ export class ListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  stocks: any;
+  stocks: StockInformationFormat[];
   totalChange: string;
   totalChangeAmount: number;
   priceColor: string;

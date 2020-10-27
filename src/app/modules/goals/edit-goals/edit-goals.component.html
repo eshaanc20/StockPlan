@@ -1,0 +1,14 @@
+<div class="edit-goals-form-component">
+    <p class="title">Edit list</p>
+    <div *ngFor="let goal of goals; index as i">
+        <div style="display: flex; width: 100%; justify-content: space-between; margin-bottom: 15px">
+            <p style="margin: 0px; font-size: 18px; padding-top: 5px">{{goal.title}}</p>
+            <button mat-button style="background-color: orange; color: white" (click)="delete(goal.goalId, i)">delete</button>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <div>
+            <button mat-raised-button (click)="close()">Close</button>
+        </div>
+    </div>
+</div>

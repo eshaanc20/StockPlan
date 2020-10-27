@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
 import { GoalsInformationFormat } from '../../interfaces';
 import { AddGoalComponent } from '../add-goal/add-goal.component';
+import { EditGoalsComponent } from '../edit-goals/edit-goals.component';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -15,8 +16,9 @@ export class GoalsListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  goalsList: [GoalsInformationFormat];
-  private newDialog: any;
+  goalsList: GoalsInformationFormat[];
+  private addDialog: any;
+  private editDialog: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +49,14 @@ export class GoalsListDetailComponent implements OnInit {
   }
 
   addNewGoal() {
-    this.newDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
+    this.addDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
+  }
+
+  editGoals() {
+    this.editDialog = this.dialog.open(EditGoalsComponent, {
+      data: {
+        goalsList: this.goalsList
+      }
+    });
   }
 }

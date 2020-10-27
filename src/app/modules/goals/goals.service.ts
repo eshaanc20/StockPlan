@@ -75,4 +75,14 @@ export class GoalsService {
       return resData;
     }));
   }
+
+  deleteGoal(goalId) {
+    return this.http.delete('http://localhost:3000/goals/' + goalId,
+    {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    });
+  }
+
 }

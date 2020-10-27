@@ -11,7 +11,7 @@ import { NewGoalsListComponent } from '../new-goals-list/new-goals-list.componen
   styleUrls: ['./goal-lists.component.css']
 })
 export class GoalListsComponent implements OnInit {
-  private newDialog: any;
+  private addDialog: any;
   goalLists: any;
 
   constructor(private loginService: LoginService, private goals: GoalsService, private dialog: MatDialog) { }
@@ -31,7 +31,7 @@ export class GoalListsComponent implements OnInit {
   }
 
   addNewList() {
-    this.newDialog = this.dialog.open(NewGoalsListComponent);
+    this.addDialog = this.dialog.open(NewGoalsListComponent);
   }
 
 }
