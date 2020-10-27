@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
     } else {
       this.homepage = false;
     }
-    const currentToken = localStorage.getItem('token');
+    const currentToken = localStorage.getItem('currentToken');
     if (currentToken) {
       loginService.verifyToken(currentToken);
     }
