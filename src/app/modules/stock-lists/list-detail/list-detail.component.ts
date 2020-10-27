@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
+import { StockInformationFormat } from '../../interfaces';
 import { AddStockComponent } from '../add-stock/add-stock.component';
 import { StockListsService } from '../stock-lists.service';
 
@@ -14,11 +15,12 @@ export class ListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  stocks: any;
+  stocks: StockInformationFormat[];
   totalChange: string;
   totalChangeAmount: number;
   priceColor: string;
   priceIncrease: boolean;
+  progress: boolean;
   private newDialog: any;
 
   constructor(
@@ -28,11 +30,13 @@ export class ListDetailComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.progress = true;
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
           this.stockListService.getStockDetails(this.listId).subscribe(list => {
+            this.progress = false;
             this.listName = list.name;
             this.listLength = list.length;
             this.stocks = list.stockDetail;
@@ -49,6 +53,7 @@ export class ListDetailComponent implements OnInit {
         });
       } else {
         this.stockListService.getStockDetails(this.listId).subscribe(list => {
+          this.progress = false;
           this.listName = list.name;
           this.listLength = list.length;
           this.stocks = list.stockDetail;

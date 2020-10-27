@@ -1,0 +1,8 @@
+.background-component {
+    border: 10px solid rgb(236, 236, 236);
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50px;
+}

@@ -4,6 +4,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { StockListsModule } from '../stock-lists/stock-lists.module';
 import { RouterModule } from '@angular/router';
+import { GoalsModule } from '../goals/goals.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     StockListsModule,
-    RouterModule
+    RouterModule,
+    GoalsModule
   ],
   exports: [NavigationComponent]
 })

@@ -26,7 +26,7 @@ export class LoginService {
         if (res.login) {
           this.loggedIn = true;
           this.userInformation = new User(res.firstName, res.lastName, res.email, res.token, res.newToken);
-          localStorage.setItem('token', res.token);
+          localStorage.setItem('currentToken', res.token);
           this.user.next(this.userInformation);
         } else {
           this.loginError.next(true);
