@@ -1,7 +1,10 @@
 <div class="navigation">
     <div>
         <div style="margin-top: 20px">
-            <a mat-button class="navigation-overview-button" [routerLink]="['/dashboard']">Overview</a>
+            <a mat-button class="navigation-overview-button" [routerLink]="['/dashboard/overview']">Overview</a>
+        </div>
+        <div style="margin-top: 0px">
+            <a mat-button class="navigation-portfolio-button" [routerLink]="['/dashboard/portfolio']">Portfolio</a>
         </div>
         <app-stock-lists></app-stock-lists>
         <app-goal-lists></app-goal-lists>

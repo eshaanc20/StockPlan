@@ -5,13 +5,15 @@ import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.comp
 import { ListDetailComponent } from './modules/stock-lists/list-detail/list-detail.component';
 import { GoalListsComponent } from './modules/goals/goal-lists/goal-lists.component';
 import { GoalsListDetailComponent } from './modules/goals/goals-list-detail/goals-list-detail.component';
+import { PortfolioDetailComponent } from './modules/portfolio/portfolio-detail/portfolio-detail.component';
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'list/:listNumber', component: ListDetailComponent},
-    {path: 'goals/:listNumber', component: GoalsListDetailComponent}
+    {path: 'goals/:listNumber', component: GoalsListDetailComponent},
+    {path: 'portfolio', component: PortfolioDetailComponent}
   ]}
 ];
 
