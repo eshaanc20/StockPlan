@@ -5,5 +5,14 @@
 .portfolio-menu-content {
     display: flex; 
     justify-content: space-between; 
-  
+}
+
+.detail {
+    width: 40%;
+    height: 200px;
+    border: 1px solid black;
+}
+.summary {
+    width: 60%;
+    height: 200px;
 }
