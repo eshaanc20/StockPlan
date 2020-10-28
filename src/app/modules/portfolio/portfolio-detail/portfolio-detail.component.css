@@ -1,0 +1,9 @@
+.portfolio-menu {
+    margin-top: 20px;
+}
+
+.portfolio-menu-content {
+    display: flex; 
+    justify-content: space-between; 
+  
+}
