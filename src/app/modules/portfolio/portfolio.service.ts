@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { LoginService } from '../authentication/login.service';
 
 @Injectable({
@@ -6,9 +8,21 @@ import { LoginService } from '../authentication/login.service';
 })
 export class PortfolioService {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private http: HttpClient) { }
 
-  addToPortfolio() {
-    
+  addToPortfolio(symbol: string, shares: number, price: number) {
+    return this.http.post('http://localhost:3000/portfolio/add', {
+      symbol,
+      shares,
+      price
+    }, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+        let resData;
+        resData = {...res};
+        return resData;
+      }));
   }
 }

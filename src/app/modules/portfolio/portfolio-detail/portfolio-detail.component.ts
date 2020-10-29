@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { PortfolioAddComponent } from '../portfolio-add/portfolio-add.component';
 
@@ -15,7 +16,7 @@ export class PortfolioDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  addToPortfolio() {
+  add() {
     this.addDialog = this.dialog.open(PortfolioAddComponent)
   }
 

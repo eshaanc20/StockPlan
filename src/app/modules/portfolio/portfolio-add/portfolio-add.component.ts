@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { PortfolioService } from '../portfolio.service';
 
 @Component({
   selector: 'app-portfolio-add',
@@ -9,13 +10,16 @@ import { MatDialogRef } from '@angular/material';
 })
 export class PortfolioAddComponent implements OnInit {
 
-  constructor(private dialog: MatDialogRef<PortfolioAddComponent>) { }
+  constructor(
+    private dialog: MatDialogRef<PortfolioAddComponent>,
+    private portfolioService: PortfolioService
+  ) { }
 
   ngOnInit() {
   }
 
-  add() {
-
+  add(f: NgForm) {
+    this.portfolioService.addToPortfolio(f.value.stockSymbol, Number(f.value.shares), Number(f.value.price))
   }
 
   close() {
