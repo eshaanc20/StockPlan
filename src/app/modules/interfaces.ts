@@ -31,3 +31,13 @@ export interface GoalsInformationFormat {
   progress: number;
   goalId: string;
 }
+
+export interface PortfolioStock {
+  symbol: string;
+  shares: number;
+  price: number;
+  bookValue: number;
+  marketValue: number;
+  change: number;
+  changeAmount: number;
+}
