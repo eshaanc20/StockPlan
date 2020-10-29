@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { PortfolioAddComponent } from '../portfolio-add/portfolio-add.component';
 
 @Component({
   selector: 'app-portfolio-detail',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio-detail.component.css']
 })
 export class PortfolioDetailComponent implements OnInit {
+  addDialog: any;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  addToPortfolio() {
+    this.addDialog = this.dialog.open(PortfolioAddComponent)
   }
 
 }
