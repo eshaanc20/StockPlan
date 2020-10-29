@@ -25,4 +25,16 @@ export class PortfolioService {
         return resData;
       }));
   }
+
+  getPortfolio() {
+    return this.http.post('http://localhost:3000/portfolio', {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+        let resData;
+        resData = {...res};
+        return resData;
+      }));
+  }
 }
