@@ -8,7 +8,7 @@ import { PortfolioStock } from '../../interfaces';
 })
 export class SummaryComponent implements OnInit {
   @Input() data: PortfolioStock[];
-  tableColumns = ['Symbol', 'Shares', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
+  tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
 
   constructor() { }
 
