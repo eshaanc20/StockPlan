@@ -33,11 +33,13 @@ export interface GoalsInformationFormat {
 }
 
 export interface PortfolioStock {
-  symbol: string;
+  stock: string;
   shares: number;
   price: number;
   bookValue: number;
   marketValue: number;
   change: number;
   changeAmount: number;
+  changeDirection: string;
+  id: number;
 }

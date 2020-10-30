@@ -10,9 +10,9 @@ export class PortfolioService {
 
   constructor(private loginService: LoginService, private http: HttpClient) { }
 
-  addToPortfolio(symbol: string, shares: number, price: number) {
+  addToPortfolio(stock: string, shares: number, price: number) {
     return this.http.post('http://localhost:3000/portfolio', {
-      symbol,
+      stock,
       shares,
       price
     }, {

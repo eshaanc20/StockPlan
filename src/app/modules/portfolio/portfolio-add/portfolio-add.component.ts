@@ -20,7 +20,11 @@ export class PortfolioAddComponent implements OnInit {
   }
 
   add(f: NgForm) {
-    this.portfolioService.addToPortfolio(f.value.stockSymbol, Number(f.value.shares), Number(f.value.price));
+    this.progress = true;
+    this.portfolioService.addToPortfolio(f.value.stockSymbol, Number(f.value.shares), Number(f.value.price)).subscribe(res => {
+      this.dialog.close();
+      this.progress = false;
+    });
   }
 
   close() {
