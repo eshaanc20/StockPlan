@@ -9,6 +9,7 @@ import { PortfolioService } from '../portfolio.service';
   styleUrls: ['./portfolio-add.component.css']
 })
 export class PortfolioAddComponent implements OnInit {
+  progress: boolean;
 
   constructor(
     private dialog: MatDialogRef<PortfolioAddComponent>,
@@ -19,7 +20,7 @@ export class PortfolioAddComponent implements OnInit {
   }
 
   add(f: NgForm) {
-    this.portfolioService.addToPortfolio(f.value.stockSymbol, Number(f.value.shares), Number(f.value.price))
+    this.portfolioService.addToPortfolio(f.value.stockSymbol, Number(f.value.shares), Number(f.value.price));
   }
 
   close() {

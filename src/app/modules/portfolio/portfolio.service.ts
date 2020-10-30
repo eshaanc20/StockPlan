@@ -27,7 +27,7 @@ export class PortfolioService {
   }
 
   getPortfolio() {
-    return this.http.post('http://localhost:3000/portfolio', {
+    return this.http.get('http://localhost:3000/portfolio', {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
