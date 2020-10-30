@@ -6,8 +6,10 @@
     </div>
     <div style="display: flex; justify-content: space-evenly;">
         <div class="summary">
-            <div>
-                <button mat-raised-button (click)="add()">Add</button>
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <div>
+                    <button mat-raised-button (click)="add()" class='add-button'>Add</button>
+                </div>
             </div>
             <div *ngIf="!progress">
                 <app-summary [data]="portfolio"></app-summary>
