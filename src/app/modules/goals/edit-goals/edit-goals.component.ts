@@ -26,8 +26,7 @@ export class EditGoalsComponent implements OnInit {
   }
 
   delete(goalId: any, index: any) {
-    const updatedGoals = this.goals.slice(index, index + 1);
-    this.goals = updatedGoals;
+    this.goals.splice(index, 1);
     this.goalService.deleteGoal(goalId).subscribe(res => {
     });
   }

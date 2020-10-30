@@ -1,7 +1,7 @@
 <div style="width: 95%; margin: auto;">
     <div class='portfolio-menu'>
         <div class='portfolio-menu-content'>
-            <p style="margin: 0px; font-size: 30px">Portfolio</p>
+            <p style="margin: 0px; font-size: 35px">Portfolio</p>
         </div>
     </div>
     <div style="display: flex; justify-content: space-evenly;">
@@ -14,12 +14,17 @@
                     <button mat-raised-button (click)="add()" class='add-button'>Add</button>
                 </div>
             </div>
-            <div *ngIf="!progress">
-                <app-summary [data]="portfolio"></app-summary>
-            </div>
             <div>
-                <div *ngFor="let goalDetail of goals">
-                    <app-goal-small [goal]="goalDetail"></app-goal-small>
+                <div *ngIf="!progress">
+                    <app-summary [data]="portfolio"></app-summary>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <p style="font-size: 26px; margin-bottom: 10px; margin-top: 0px">Goals</p>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div *ngFor="let goalDetail of goals" style="margin-right: 25px">
+                        <app-goal-small [goal]="goalDetail"></app-goal-small>
+                    </div>
                 </div>
             </div>
         </div>
