@@ -17,6 +17,11 @@
             <div *ngIf="!progress">
                 <app-summary [data]="portfolio"></app-summary>
             </div>
+            <div>
+                <div *ngFor="let goalDetail of goals">
+                    <app-goal-small [goal]="goalDetail"></app-goal-small>
+                </div>
+            </div>
         </div>
         <div class="detail"></div>
     </div>

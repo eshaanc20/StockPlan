@@ -5,6 +5,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule } from '@angular/material';
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { FormsModule } from '@angular/forms';
+import { GoalsModule } from '../goals/goals.module';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    GoalsModule
   ],
   exports: [PortfolioDetailComponent],
   entryComponents: [
