@@ -17,6 +17,7 @@ export class PortfolioDetailComponent implements OnInit {
   portfolio: PortfolioStock[];
   stocks: StockInformationFormat[];
   goals: GoalsInformationFormat[];
+  total: number;
 
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private portfolioService: PortfolioService) { }
@@ -28,6 +29,7 @@ export class PortfolioDetailComponent implements OnInit {
         this.portfolio = data.portfolio;
         this.stocks = data.stocks;
         this.goals = data.goals;
+        this.total = this.portfolio.length;
         this.progress = false;
       });
     } else {
@@ -36,6 +38,7 @@ export class PortfolioDetailComponent implements OnInit {
           this.portfolio = data.portfolio;
           this.stocks = data.stocks;
           this.goals = data.goals;
+          this.total = this.portfolio.length;
           this.progress = false;
         });
       });
