@@ -13,6 +13,7 @@ import { GoalsService } from './goals.service';
 import { GoalComponent } from './goal/goal.component';
 import { ProgressComponent } from './progress/progress.component';
 import { EditGoalsComponent } from './edit-goals/edit-goals.component';
+import { GoalSmallComponent } from './goal-small/goal-small.component';
 
 
 
@@ -24,7 +25,8 @@ import { EditGoalsComponent } from './edit-goals/edit-goals.component';
     AddGoalComponent,
     GoalComponent,
     ProgressComponent,
-    EditGoalsComponent
+    EditGoalsComponent,
+    GoalSmallComponent
   ],
   imports: [
     CommonModule,

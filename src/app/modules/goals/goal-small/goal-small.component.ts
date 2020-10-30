@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GoalsInformationFormat } from '../../interfaces';
 
 @Component({
-  selector: 'app-goal',
-  templateUrl: './goal.component.html',
-  styleUrls: ['./goal.component.css']
+  selector: 'app-goal-small',
+  templateUrl: './goal-small.component.html',
+  styleUrls: ['./goal-small.component.css']
 })
-export class GoalComponent implements OnInit {
+export class GoalSmallComponent implements OnInit {
   @Input() goal: GoalsInformationFormat;
   status: string;
 

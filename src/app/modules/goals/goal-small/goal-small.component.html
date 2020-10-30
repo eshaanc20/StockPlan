@@ -1,0 +1,17 @@
+<div class="goal-component">
+    <div style="display: flex;">
+        <app-progress [progressValue]="goal.progress" [text]="goal.currentValue"></app-progress>
+        <div style="margin-left: 20px; width: 100%">
+            <p style="font-size: 20px; margin: 0px;">{{goal.title}}</p>
+            <hr style="color: gray; width: 100%">
+            <div style="display: flex; justify-content: space-between;">
+                <p style="color: #1e70eb; font-size: 18px; margin: 0px">{{goal.stock}}</p>
+                <p style="color: gray; font-size: 18px; margin: 0px">{{goal.goalType}}</p>
+            </div>
+            <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                <p style="font-size: 18px; margin: 0px;">{{goal.goalParameter}}</p>
+                <p style="font-size: 18px; margin: 0px;">${{goal.goalTargetNumber}}</p>
+            </div>
+        </div>
+    </div>
+</div>
