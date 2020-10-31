@@ -1,16 +1,16 @@
 <div class="stock-component">
     <div style="display: flex; justify-content: space-between;">
         <div>
-            <p style="margin: 0px; font-size: 21px;">{{stock.symbol}}</p>
+            <p style="margin: 0px; font-size: 16px;">{{stock.symbol}}</p>
         </div>
         <div style="text-align: right;">
-            <p style="margin: 0px; font-size: 20px">${{stock.current}}</p>
+            <p style="margin: 0px; font-size: 16px">${{stock.current}}</p>
             <div style="display: flex; justify-content: flex-end;" [ngStyle]="{'color': priceColor}">
-                <mat-icon style="font-size: 22px" *ngIf="priceIncrease">arrow_upward</mat-icon>
-                <mat-icon style="font-size: 22px" *ngIf="!priceIncrease">arrow_downward</mat-icon>
+                <mat-icon style="font-size: 20px" *ngIf="priceIncrease">arrow_upward</mat-icon>
+                <mat-icon style="font-size: 20px" *ngIf="!priceIncrease">arrow_downward</mat-icon>
                 <div style="width: 2px"></div>
                 <p style="margin: 0px; font-size: 16px">${{stock.amountChange}}</p>
-                <p style="margin: 0px; padding-right: 2px; padding-left: 2px; font-size: 15px">|</p>
+                <p style="margin: 0px; padding-right: 2px; padding-left: 2px; font-size: 14px">|</p>
                 <p style="margin: 0px; font-size: 16px">{{stock.percentChange}}%</p>
             </div>
         </div>
