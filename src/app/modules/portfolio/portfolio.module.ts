@@ -6,6 +6,7 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, Mat
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { FormsModule } from '@angular/forms';
 import { GoalsModule } from '../goals/goals.module';
+import { StockListsModule } from '../stock-lists/stock-lists.module';
 
 
 
@@ -19,7 +20,8 @@ import { GoalsModule } from '../goals/goals.module';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    GoalsModule
+    GoalsModule,
+    StockListsModule
   ],
   exports: [PortfolioDetailComponent],
   entryComponents: [

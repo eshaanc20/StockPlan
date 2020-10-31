@@ -28,6 +28,10 @@
                 </div>
             </div>
         </div>
-        <div class="detail"></div>
+        <div class="detail">
+            <div *ngFor="let stockDetail of stocks">
+                <app-stock-second [stock]="stockDetail"></app-stock-second>
+            </div>
+        </div>
     </div>
 </div>

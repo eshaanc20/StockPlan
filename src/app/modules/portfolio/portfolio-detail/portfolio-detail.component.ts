@@ -27,7 +27,7 @@ export class PortfolioDetailComponent implements OnInit {
     if (this.loginService.getLoginStatus()) {
       this.portfolioService.getPortfolio().subscribe(data => {
         this.portfolio = data.portfolio;
-        this.stocks = data.stocks;
+        this.stocks = data.stocks.stockDetail;
         this.goals = data.goals;
         this.total = this.portfolio.length;
         this.progress = false;
@@ -36,10 +36,11 @@ export class PortfolioDetailComponent implements OnInit {
       this.loginService.user.subscribe(res => {
         this.portfolioService.getPortfolio().subscribe(data => {
           this.portfolio = data.portfolio;
-          this.stocks = data.stocks;
+          this.stocks = data.stocks.stockDetail;
           this.goals = data.goals;
           this.total = this.portfolio.length;
           this.progress = false;
+
         });
       });
     }
