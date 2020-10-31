@@ -13,6 +13,7 @@ import { StockListsService } from '../stock-lists.service';
 export class StockListsComponent implements OnInit {
   private newDialog: any;
   stockLists: any;
+  length: number;
 
   constructor(private dialog: MatDialog, private stockListService: StockListsService, private loginService: LoginService) {
   }
@@ -22,11 +23,13 @@ export class StockListsComponent implements OnInit {
       this.loginService.user.subscribe(res => {
         this.stockListService.getAllLists().subscribe(lists => {
           this.stockLists = lists.allLists;
+          this.length = lists.stocks.length;
         });
       });
     } else {
-      this.stockListService.getAllLists().subscribe(res => {
-        this.stockLists = res.allLists;
+      this.stockListService.getAllLists().subscribe(lists => {
+        this.stockLists = lists.allLists;
+        this.length = lists.stocks.length;
       });
     }
   }
