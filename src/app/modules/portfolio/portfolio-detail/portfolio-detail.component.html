@@ -16,7 +16,7 @@
             </div>
             <div>
                 <div *ngIf="!progress">
-                    <app-summary [data]="portfolio"></app-summary>
+                    <app-summary [stocks]="portfolioStocks" [total]="totalPortfolioData"></app-summary>
                 </div>
             </div>
             <div style="margin-top: 20px;">

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { PortfolioStockData } from '../../interfaces';
+import { PortfolioStockData, PortfolioTotalData } from '../../interfaces';
 
 @Component({
   selector: 'app-summary',
@@ -7,14 +7,11 @@ import { PortfolioStockData } from '../../interfaces';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-  @Input() data: PortfolioStockData[];
+  @Input() stocks: PortfolioStockData[];
+  @Input() total: PortfolioTotalData;
   tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
   tableContent: PortfolioStockData[];
   length: number;
-  totalBookValue: number;
-  totalMarketValue: number;
-  totalChangeAmount: number;
-  totalChange: number;
 
   constructor() { }
 

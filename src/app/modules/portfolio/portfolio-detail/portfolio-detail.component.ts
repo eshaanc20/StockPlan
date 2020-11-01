@@ -14,7 +14,7 @@ import { PortfolioService } from '../portfolio.service';
 export class PortfolioDetailComponent implements OnInit {
   addDialog: any;
   progress: boolean;
-  portfolio: PortfolioStockData[];
+  portfolioStocks: PortfolioStockData[];
   stocks: StockData[];
   goals: GoalsData[];
   total: number;
@@ -27,7 +27,7 @@ export class PortfolioDetailComponent implements OnInit {
     this.progress = true;
     if (this.loginService.getLoginStatus()) {
       this.portfolioService.getPortfolio().subscribe(data => {
-        this.portfolio = data.portfolio.stockDetail;
+        this.portfolioStocks = data.portfolio.stockDetail;
         this.totalPortfolioData = {
           totalBookValue: data.portfolio.totalBookValue,
           totalMarketValue: data.portfolio.totalMarketValue,
@@ -37,16 +37,16 @@ export class PortfolioDetailComponent implements OnInit {
         }
         this.stocks = data.stocks.stockDetail;
         this.goals = data.goals;
-        this.total = this.portfolio.length;
+        this.total = this.portfolioStocks.length;
         this.progress = false;
       });
     } else {
       this.loginService.user.subscribe(res => {
         this.portfolioService.getPortfolio().subscribe(data => {
-          this.portfolio = data.portfolio;
+          this.portfolioStocks = data.portfolio;
           this.stocks = data.stocks.stockDetail;
           this.goals = data.goals;
-          this.total = this.portfolio.length;
+          this.total = this.portfolioStocks.length;
           this.progress = false;
 
         });
