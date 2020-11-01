@@ -1,11 +1,14 @@
+.homepage {
+    background-color: #1e70eb;
+}
+
 .homepage-content {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
     flex-wrap: wrap;
-    background-color: #1e70eb;
     height: 100vh;
+    margin-top: 100px;
 }
 
 .homepage-login-form-component {
@@ -16,5 +19,5 @@
     flex: 20%;
     color: white;
     font-size: 75px;
-    margin-left: 50px;
+    margin-left: 80px;
 }
