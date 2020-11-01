@@ -1,4 +1,4 @@
-export interface StockInformationFormat {
+export interface StockData {
     symbol: string;
     current: number;
     open: number;
@@ -17,7 +17,7 @@ export interface StockInformationFormat {
     betaValue: number;
   }
 
-export interface GoalsInformationFormat {
+export interface GoalsData {
   title: string;
   goalType: string;
   description: string;
@@ -44,7 +44,7 @@ export interface PortfolioStock {
   id: number;
 }
 
-export interface StockSummaryInformation {
+export interface StockSummaryData {
   symbol: string;
   current: number;
   change: string;
