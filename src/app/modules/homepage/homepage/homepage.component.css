@@ -1,5 +1,6 @@
 .homepage {
     background-color: #1e70eb;
+    height: 100vh;
 }
 
 .homepage-content {
@@ -7,7 +8,6 @@
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    height: 100vh;
     margin-top: 100px;
 }
 
