@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { GoalsInformationFormat } from '../../interfaces';
+import { GoalsData } from '../../interfaces';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { GoalsService } from '../goals.service';
   styleUrls: ['./edit-goals.component.css']
 })
 export class EditGoalsComponent implements OnInit {
-  goals: GoalsInformationFormat[];
+  goals: GoalsData[];
 
   constructor(
     private dialog: MatDialogRef<EditGoalsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {goalsList: [GoalsInformationFormat]},
+    @Inject(MAT_DIALOG_DATA) public data: {goalsList: GoalsData[]},
     private goalService: GoalsService
   ) { }
 

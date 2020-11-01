@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { LoginService } from '../../authentication/login.service';
-import { GoalsInformationFormat, PortfolioStock, PortfolioTotalData, StockInformationFormat } from '../../interfaces';
+import { PortfolioTotalData, GoalsData, StockData, PortfolioStockData } from '../../interfaces';
 import { PortfolioAddComponent } from '../portfolio-add/portfolio-add.component';
 import { PortfolioService } from '../portfolio.service';
 
@@ -14,9 +14,9 @@ import { PortfolioService } from '../portfolio.service';
 export class PortfolioDetailComponent implements OnInit {
   addDialog: any;
   progress: boolean;
-  portfolio: PortfolioStock[];
-  stocks: StockInformationFormat[];
-  goals: GoalsInformationFormat[];
+  portfolio: PortfolioStockData[];
+  stocks: StockData[];
+  goals: GoalsData[];
   total: number;
   totalPortfolioData: PortfolioTotalData;
 

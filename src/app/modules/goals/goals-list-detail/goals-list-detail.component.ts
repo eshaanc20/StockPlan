@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
-import { GoalsInformationFormat } from '../../interfaces';
+import { GoalsData } from '../../interfaces';
 import { AddGoalComponent } from '../add-goal/add-goal.component';
 import { EditGoalsComponent } from '../edit-goals/edit-goals.component';
 import { GoalsService } from '../goals.service';
@@ -16,7 +16,7 @@ export class GoalsListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  goalsList: GoalsInformationFormat[];
+  goalsList: GoalsData[];
   private addDialog: any;
   private editDialog: any;
 

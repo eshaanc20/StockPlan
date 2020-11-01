@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StockInformationFormat } from '../../interfaces';
+import { StockData } from '../../interfaces';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { StockInformationFormat } from '../../interfaces';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
-  @Input() stock: StockInformationFormat;
+  @Input() stock: StockData;
   priceColor: string;
   priceIncrease: boolean;
   marketCap: number;

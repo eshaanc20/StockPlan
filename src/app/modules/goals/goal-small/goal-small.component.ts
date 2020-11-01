@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GoalsInformationFormat } from '../../interfaces';
+import { GoalsData } from '../../interfaces';
 
 @Component({
   selector: 'app-goal-small',
@@ -7,7 +7,7 @@ import { GoalsInformationFormat } from '../../interfaces';
   styleUrls: ['./goal-small.component.css']
 })
 export class GoalSmallComponent implements OnInit {
-  @Input() goal: GoalsInformationFormat;
+  @Input() goal: GoalsData;
   status: string;
 
   constructor() { }
