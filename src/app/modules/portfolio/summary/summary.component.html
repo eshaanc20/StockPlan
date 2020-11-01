@@ -3,33 +3,41 @@
         <ng-container matColumnDef="Symbol">
             <th mat-header-cell *matHeaderCellDef>Symbol</th>
             <td mat-cell *matCellDef="let element">{{element.stock}}</td>
+            <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="Shares">
             <th mat-header-cell *matHeaderCellDef>Shares</th>
             <td mat-cell *matCellDef="let element">{{element.shares}}</td>
+            <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="Price">
             <th mat-header-cell *matHeaderCellDef>Price</th>
             <td mat-cell *matCellDef="let element">${{element.price}}</td>
+            <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
         <ng-container matColumnDef="Book Value">
             <th mat-header-cell *matHeaderCellDef>Book</th>
             <td mat-cell *matCellDef="let element">${{element.bookValue}}</td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">{{totalBookValue}}</td>
         </ng-container>
         <ng-container matColumnDef="Market Value">
             <th mat-header-cell *matHeaderCellDef>Market</th>
             <td mat-cell *matCellDef="let element">${{element.marketValue}}</td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">{{totalMarketValue}}</td>
         </ng-container>
         <ng-container matColumnDef="Change Amount">
             <th mat-header-cell *matHeaderCellDef>Net Amount</th>
             <td mat-cell *matCellDef="let element"><p [ngStyle]="{'color': element.changeDirection == 'increase'? 'green': 'red'}">${{element.changeAmount}}</p></td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p>{{totalChangeAmount}}</p></td>
         </ng-container>
         <ng-container matColumnDef="Change">
             <th mat-header-cell *matHeaderCellDef>Change</th>
             <td mat-cell *matCellDef="let element"><p [ngStyle]="{'color': element.changeDirection == 'increase'? 'green': 'red'}">{{element.change}}%</p></td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p>{{totalChange}}</p></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="tableColumns"></tr>
     </table>
     <mat-paginator [length]="this.length" [pageSize]="5" [pageSizeOptions]="[5]" (page)="updateTableContent($event)"></mat-paginator>
 </div>

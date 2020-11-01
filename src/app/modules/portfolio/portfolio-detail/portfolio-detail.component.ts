@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { LoginService } from '../../authentication/login.service';
-import { GoalsInformationFormat, PortfolioStock, StockInformationFormat } from '../../interfaces';
+import { GoalsInformationFormat, PortfolioStock, PortfolioTotalData, StockInformationFormat } from '../../interfaces';
 import { PortfolioAddComponent } from '../portfolio-add/portfolio-add.component';
 import { PortfolioService } from '../portfolio.service';
 
@@ -18,6 +18,7 @@ export class PortfolioDetailComponent implements OnInit {
   stocks: StockInformationFormat[];
   goals: GoalsInformationFormat[];
   total: number;
+  totalPortfolioData: PortfolioTotalData;
 
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private portfolioService: PortfolioService) { }
@@ -26,7 +27,14 @@ export class PortfolioDetailComponent implements OnInit {
     this.progress = true;
     if (this.loginService.getLoginStatus()) {
       this.portfolioService.getPortfolio().subscribe(data => {
-        this.portfolio = data.portfolio;
+        this.portfolio = data.portfolio.stockDetail;
+        this.totalPortfolioData = {
+          totalBookValue: data.portfolio.totalBookValue,
+          totalMarketValue: data.portfolio.totalMarketValue,
+          totalChangeAmount: data.portfolio.totalChangeAmount,
+          totalChange: data.portfolio.totalChange,
+          totalChangeDirection: data.portfolio.totalChangeDirection
+        }
         this.stocks = data.stocks.stockDetail;
         this.goals = data.goals;
         this.total = this.portfolio.length;

@@ -11,11 +11,26 @@ export class SummaryComponent implements OnInit {
   tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
   tableContent: PortfolioStock[];
   length: number;
+  totalBookValue: number;
+  totalMarketValue: number;
+  totalChangeAmount: number;
+  totalChange: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.length = this.data.length;
+    this.totalBookValue = this.data.reduce((total, current) => {
+      return total + current.bookValue;
+    }, 0);
+    this.totalMarketValue = this.data.reduce((total, current) => {
+      return total + current.marketValue;
+    }, 0);
+    this.totalChangeAmount = this.data.reduce((total, current) => {
+      return total + current.changeAmount;
+    }, 0);
+    this.totalChange = this.data.reduce((total, current) => {
+      return total + current.change;
+    }, 0);
     if (this.length < 8) {
       this.tableContent = this.data.slice(0, this.length);
     } else {

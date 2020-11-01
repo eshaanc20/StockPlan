@@ -43,3 +43,21 @@ export interface PortfolioStock {
   changeDirection: string;
   id: number;
 }
+
+export interface StockSummaryInformation {
+  symbol: string;
+  current: number;
+  change: string;
+  percentChange: string;
+  amountChange: number;
+}
+
+export interface PortfolioTotalData {
+  totalBookValue: number;
+  totalMarketValue: number;
+  totalChangeAmount: number;
+  totalChange: number;
+  totalChangeDirection: string;
+}
+
+

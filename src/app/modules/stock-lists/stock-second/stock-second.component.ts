@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { StockInformationFormat } from '../../interfaces';
+import { StockSummaryInformation } from '../../interfaces';
 
 @Component({
   selector: 'app-stock-second',
@@ -7,7 +7,7 @@ import { StockInformationFormat } from '../../interfaces';
   styleUrls: ['./stock-second.component.css']
 })
 export class StockSecondComponent implements OnInit {
-  @Input() stock: StockInformationFormat;
+  @Input() stock: StockSummaryInformation;
   priceColor: string;
   priceIncrease: boolean;
   marketCap: number;
@@ -18,16 +18,6 @@ export class StockSecondComponent implements OnInit {
   ngOnInit() {
     this.priceColor = this.stock.change === 'increase' ? 'green' : 'red';
     this.priceIncrease = this.stock.change === 'increase' ? true : false;
-    if (this.stock.marketCap > 1000) {
-      this.marketCap = (Math.round(this.stock.marketCap / 10)) / 100;
-      this.marketCapDetail = 'T';
-    } else if (this.stock.marketCap > 0) {
-      this.marketCap = (Math.round(this.stock.marketCap * 100)) / 100;
-      this.marketCapDetail = 'B';
-    } else {
-      this.marketCap = (Math.round(this.stock.marketCap / 100)) * 100;
-      this.marketCapDetail = 'M';
-    }
   }
 
 }
