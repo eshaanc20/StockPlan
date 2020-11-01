@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDetailComponent } from './portfolio-detail/portfolio-detail.component';
 import { SummaryComponent } from './summary/summary.component';
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import { PortfolioAddComponent } from './portfolio-add/portfolio-add.component';
 import { FormsModule } from '@angular/forms';
 import { GoalsModule } from '../goals/goals.module';
@@ -21,7 +21,8 @@ import { StockListsModule } from '../stock-lists/stock-lists.module';
     MatInputModule,
     MatIconModule,
     GoalsModule,
-    StockListsModule
+    StockListsModule,
+    MatPaginatorModule
   ],
   exports: [PortfolioDetailComponent],
   entryComponents: [
