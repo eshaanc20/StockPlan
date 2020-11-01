@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { PortfolioStock } from '../../interfaces';
+import { PortfolioStockData } from '../../interfaces';
 
 @Component({
   selector: 'app-summary',
@@ -7,9 +7,9 @@ import { PortfolioStock } from '../../interfaces';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-  @Input() data: PortfolioStock[];
+  @Input() data: PortfolioStockData[];
   tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
-  tableContent: PortfolioStock[];
+  tableContent: PortfolioStockData[];
   length: number;
   totalBookValue: number;
   totalMarketValue: number;
@@ -19,18 +19,6 @@ export class SummaryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.totalBookValue = this.data.reduce((total, current) => {
-      return total + current.bookValue;
-    }, 0);
-    this.totalMarketValue = this.data.reduce((total, current) => {
-      return total + current.marketValue;
-    }, 0);
-    this.totalChangeAmount = this.data.reduce((total, current) => {
-      return total + current.changeAmount;
-    }, 0);
-    this.totalChange = this.data.reduce((total, current) => {
-      return total + current.change;
-    }, 0);
     if (this.length < 8) {
       this.tableContent = this.data.slice(0, this.length);
     } else {
