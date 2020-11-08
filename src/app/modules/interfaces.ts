@@ -53,9 +53,9 @@ export interface StockSummaryData {
 }
 
 export interface PortfolioTotalData {
-  totalBookValue: number;
-  totalMarketValue: number;
-  totalChangeAmount: number;
-  totalChange: number;
-  totalChangeDirection: string;
+  bookValue: number;
+  marketValue: number;
+  changeAmount: number;
+  change: number;
+  changeDirection: string;
 }

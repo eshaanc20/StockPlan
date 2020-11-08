@@ -27,15 +27,15 @@ export class PortfolioDetailComponent implements OnInit {
     this.progress = true;
     if (this.loginService.getLoginStatus()) {
       this.portfolioService.getPortfolio().subscribe(data => {
-        this.portfolioStocks = data.portfolio.stockDetail;
+        this.portfolioStocks = data.portfolio.stocksDetail;
         this.totalPortfolioData = {
-          totalBookValue: data.portfolio.totalBookValue,
-          totalMarketValue: data.portfolio.totalMarketValue,
-          totalChangeAmount: data.portfolio.totalChangeAmount,
-          totalChange: data.portfolio.totalChange,
-          totalChangeDirection: data.portfolio.totalChangeDirection
-        }
-        this.stocks = data.stocks.stockDetail;
+          bookValue: data.portfolio.totalBookValue,
+          marketValue: data.portfolio.totalMarketValue,
+          changeAmount: data.portfolio.totalChangeAmount,
+          change: data.portfolio.totalChange,
+          changeDirection: data.portfolio.totalChangeDirection
+        };
+        this.stocks = data.stocks.stocksDetail;
         this.goals = data.goals;
         this.total = this.portfolioStocks.length;
         this.progress = false;
@@ -43,12 +43,18 @@ export class PortfolioDetailComponent implements OnInit {
     } else {
       this.loginService.user.subscribe(res => {
         this.portfolioService.getPortfolio().subscribe(data => {
-          this.portfolioStocks = data.portfolio;
-          this.stocks = data.stocks.stockDetail;
+          this.portfolioStocks = data.portfolio.stocksDetail;
+          this.totalPortfolioData = {
+            bookValue: data.portfolio.totalBookValue,
+            marketValue: data.portfolio.totalMarketValue,
+            changeAmount: data.portfolio.totalChangeAmount,
+            change: data.portfolio.totalChange,
+            changeDirection: data.portfolio.totalChangeDirection
+          };
+          this.stocks = data.stocks.stocksDetail;
           this.goals = data.goals;
           this.total = this.portfolioStocks.length;
           this.progress = false;
-
         });
       });
     }

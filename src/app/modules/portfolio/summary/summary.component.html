@@ -18,22 +18,22 @@
         <ng-container matColumnDef="Book Value">
             <th mat-header-cell *matHeaderCellDef>Book</th>
             <td mat-cell *matCellDef="let element">${{element.bookValue}}</td>
-            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">{{totalBookValue}}</td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">${{total.bookValue}}</td>
         </ng-container>
         <ng-container matColumnDef="Market Value">
             <th mat-header-cell *matHeaderCellDef>Market</th>
             <td mat-cell *matCellDef="let element">${{element.marketValue}}</td>
-            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">{{totalMarketValue}}</td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray">${{total.marketValue}}</td>
         </ng-container>
         <ng-container matColumnDef="Change Amount">
-            <th mat-header-cell *matHeaderCellDef>Net Amount</th>
+            <th mat-header-cell *matHeaderCellDef>Change Amount</th>
             <td mat-cell *matCellDef="let element"><p [ngStyle]="{'color': element.changeDirection == 'increase'? 'green': 'red'}">${{element.changeAmount}}</p></td>
-            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p>{{totalChangeAmount}}</p></td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p [ngStyle]="{'color': total.changeDirection == 'increase'? 'green': 'red'}">${{total.changeAmount}}</p></td>
         </ng-container>
         <ng-container matColumnDef="Change">
             <th mat-header-cell *matHeaderCellDef>Change</th>
             <td mat-cell *matCellDef="let element"><p [ngStyle]="{'color': element.changeDirection == 'increase'? 'green': 'red'}">{{element.change}}%</p></td>
-            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p>{{totalChange}}</p></td>
+            <td mat-footer-cell *matFooterCellDef style="border-top: 1px solid gray"><p [ngStyle]="{'color': total.changeDirection == 'increase'? 'green': 'red'}">{{total.change}}%</p></td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
