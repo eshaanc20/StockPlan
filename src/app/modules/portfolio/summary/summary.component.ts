@@ -17,9 +17,9 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit() {
     if (this.length < 8) {
-      this.tableContent = this.data.slice(0, this.length);
+      this.tableContent = this.stocks.slice(0, this.length);
     } else {
-      this.tableContent = this.data.slice(0, 8);
+      this.tableContent = this.stocks.slice(0, 8);
     }
   }
 
@@ -28,9 +28,9 @@ export class SummaryComponent implements OnInit {
     const endIndex = startIndex + 1;
     let updatedData = null;
     if (endIndex > this.length) {
-      updatedData = this.data.slice(startIndex, this.length);
+      updatedData = this.stocks.slice(startIndex, this.length);
     } else {
-      this.data.slice(startIndex, endIndex);
+      this.stocks.slice(startIndex, endIndex);
     }
     this.tableContent = updatedData;
   }
