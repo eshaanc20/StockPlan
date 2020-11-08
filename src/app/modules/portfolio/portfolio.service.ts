@@ -37,4 +37,16 @@ export class PortfolioService {
         return resData;
       }));
   }
+
+  delete(id: string) {
+    return this.http.delete('http://localhost:3000/portfolio/' + id, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+        let resData;
+        resData = {...res};
+        return resData;
+      }));
+  }
 }

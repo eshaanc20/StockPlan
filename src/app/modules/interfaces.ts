@@ -15,6 +15,7 @@ export interface StockData {
     dividendYield: number;
     profitEarningRatio: number;
     betaValue: number;
+    id: string;
 }
 
 export interface GoalsData {
@@ -29,7 +30,7 @@ export interface GoalsData {
   goalCompletedDate: string;
   currentValue: number;
   progress: number;
-  goalId: string;
+  id: string;
 }
 
 export interface PortfolioStockData {
@@ -41,7 +42,7 @@ export interface PortfolioStockData {
   change: number;
   changeAmount: number;
   changeDirection: string;
-  id: number;
+  id: string;
 }
 
 export interface StockSummaryData {

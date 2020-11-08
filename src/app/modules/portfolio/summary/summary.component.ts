@@ -1,5 +1,6 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { PortfolioStockData, PortfolioTotalData } from '../../interfaces';
+import { PortfolioService } from '../portfolio.service';
 
 @Component({
   selector: 'app-summary',
@@ -12,8 +13,9 @@ export class SummaryComponent implements OnInit {
   tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
   tableContent: PortfolioStockData[];
   length: number;
+  progress: boolean;
 
-  constructor() { }
+  constructor(private portfolioService: PortfolioService) { }
 
   ngOnInit() {
     if (this.length < 8) {
@@ -35,4 +37,10 @@ export class SummaryComponent implements OnInit {
     this.tableContent = updatedData;
   }
 
+  deletePortfolio(id: string) {
+    this.progress = true;
+    this.portfolioService.delete(id).subscribe(res => {
+      this.progress = false;
+    });
+  }
 }
