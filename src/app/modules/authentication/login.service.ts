@@ -64,7 +64,7 @@ export class LoginService {
   getLoginStatus() {
     return this.loggedIn;
   }
-  
+
   getLoginInformation() {
     if (this.loggedIn) {
       return this.userInformation;
