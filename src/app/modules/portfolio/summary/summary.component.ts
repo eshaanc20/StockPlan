@@ -10,6 +10,7 @@ import { PortfolioService } from '../portfolio.service';
 export class SummaryComponent implements OnInit {
   @Input() stocks: PortfolioStockData[];
   @Input() total: PortfolioTotalData;
+  @Input() edit: boolean;
   tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
   tableContent: PortfolioStockData[];
   length: number;

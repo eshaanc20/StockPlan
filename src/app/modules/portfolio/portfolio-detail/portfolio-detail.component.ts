@@ -19,6 +19,7 @@ export class PortfolioDetailComponent implements OnInit {
   goals: GoalsData[];
   total: number;
   totalPortfolioData: PortfolioTotalData;
+  editMode: boolean;
 
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private portfolioService: PortfolioService) { }

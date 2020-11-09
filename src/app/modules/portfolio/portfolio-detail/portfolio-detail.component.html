@@ -11,7 +11,12 @@
                     <p style="font-size: 26px; margin-top: 0px; margin-bottom: 0px; color: gray;">{{total}} stocks</p>
                 </div>
                 <div>
-                    <button mat-raised-button (click)="add()" class='add-button'>Add</button>
+                    <button mat-mini-fab (click)="add()" color="primary" style="margin-right: 10px">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button mat-mini-fab style="background-color: darkorange;">
+                        <mat-icon style="color: white;">settings</mat-icon>
+                    </button>
                 </div>
             </div>
             <div>
