@@ -14,14 +14,14 @@
                     <button mat-mini-fab (click)="add()" color="primary" style="margin-right: 10px">
                         <mat-icon>add</mat-icon>
                     </button>
-                    <button mat-mini-fab style="background-color: darkorange;">
-                        <mat-icon style="color: white;">settings</mat-icon>
+                    <button mat-mini-fab [ngStyle]="{'background-color': editMode? 'white': 'darkorange'}" (click)="edit()">
+                        <mat-icon [ngStyle]="{'color': editMode? 'darkorange': 'white'}">settings</mat-icon>
                     </button>
                 </div>
             </div>
             <div>
                 <div *ngIf="!progress">
-                    <app-summary [stocks]="portfolioStocks" [total]="totalPortfolioData"></app-summary>
+                    <app-summary [stocks]="portfolioStocks" [total]="totalPortfolioData" [edit]="editMode"></app-summary>
                 </div>
             </div>
             <div style="margin-top: 20px;">

@@ -19,7 +19,7 @@ export class PortfolioDetailComponent implements OnInit {
   goals: GoalsData[];
   total: number;
   totalPortfolioData: PortfolioTotalData;
-  editMode: boolean;
+  editMode = false;
 
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private portfolioService: PortfolioService) { }
@@ -63,6 +63,11 @@ export class PortfolioDetailComponent implements OnInit {
 
   add() {
     this.addDialog = this.dialog.open(PortfolioAddComponent);
+  }
+
+  edit() {
+    const editStatus = this.editMode;
+    this.editMode = !editStatus;
   }
 
 }
