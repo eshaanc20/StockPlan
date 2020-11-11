@@ -15,40 +15,43 @@ export class SummaryComponent implements OnInit, OnChanges {
   tableContent: PortfolioStockData[];
   length: number;
   progress: boolean;
+  currentPage = 0;
 
   constructor(private portfolioService: PortfolioService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.setTableContent();
+    this.setTableContent(this.currentPage);
   }
 
   ngOnInit() {
-    this.setTableContent();
+    this.setTableContent(0);
   }
 
-  setTableContent() {
-    if (this.length < 8) {
-      this.tableContent = this.stocks.slice(0, this.length);
+  setTableContent(id: number) {
+    const startIndex = id * 1;
+    const endIndex = startIndex + 5;
+    this.currentPage = id;
+    if (endIndex > this.length) {
+      this.tableContent = this.stocks.slice(startIndex, this.length);
     } else {
-      this.tableContent = this.stocks.slice(0, 8);
+      this.tableContent = this.stocks.slice(startIndex, endIndex);
     }
   }
 
   updateTableContent(event: any) {
-    const startIndex = event.pageIndex * 1;
-    const endIndex = startIndex + 1;
-    let updatedData = null;
-    if (endIndex > this.length) {
-      updatedData = this.stocks.slice(startIndex, this.length);
-    } else {
-      this.stocks.slice(startIndex, endIndex);
-    }
-    this.tableContent = updatedData;
+    this.setTableContent(event.pageIndex);
   }
 
   deletePortfolio(id: string) {
     this.progress = true;
     this.portfolioService.delete(id).subscribe(res => {
+      this.stocks = this.stocks.filter(element => {
+        if (element.id === id) {
+          return false;
+        }
+        return true;
+      });
+      this.setTableContent(this.currentPage);
       this.progress = false;
     });
   }
