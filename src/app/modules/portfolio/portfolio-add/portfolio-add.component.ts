@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { PortfolioService } from '../portfolio.service';
 
 @Component({
@@ -26,9 +26,4 @@ export class PortfolioAddComponent implements OnInit {
       this.progress = false;
     });
   }
-
-  close() {
-    this.dialog.close();
-  }
-
 }

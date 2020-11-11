@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { PortfolioStockData, PortfolioTotalData } from '../../interfaces';
 import { PortfolioService } from '../portfolio.service';
 
@@ -7,7 +7,7 @@ import { PortfolioService } from '../portfolio.service';
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css']
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent implements OnInit, OnChanges {
   @Input() stocks: PortfolioStockData[];
   @Input() total: PortfolioTotalData;
   @Input() edit: boolean;
@@ -18,7 +18,15 @@ export class SummaryComponent implements OnInit {
 
   constructor(private portfolioService: PortfolioService) { }
 
+  ngOnChanges(changes: SimpleChanges) {
+    this.setTableContent();
+  }
+
   ngOnInit() {
+    this.setTableContent();
+  }
+
+  setTableContent() {
     if (this.length < 8) {
       this.tableContent = this.stocks.slice(0, this.length);
     } else {

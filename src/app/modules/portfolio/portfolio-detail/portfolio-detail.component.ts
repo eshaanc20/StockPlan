@@ -12,7 +12,6 @@ import { PortfolioService } from '../portfolio.service';
   styleUrls: ['./portfolio-detail.component.css']
 })
 export class PortfolioDetailComponent implements OnInit {
-  addDialog: any;
   progress: boolean;
   portfolioStocks: PortfolioStockData[];
   stocks: StockData[];
@@ -61,8 +60,30 @@ export class PortfolioDetailComponent implements OnInit {
     }
   }
 
+  updateContent() {
+    this.portfolioService.getPortfolio().subscribe(data => {
+      this.portfolioStocks = data.portfolio.stocksDetail;
+      this.totalPortfolioData = {
+        bookValue: data.portfolio.totalBookValue,
+        marketValue: data.portfolio.totalMarketValue,
+        changeAmount: data.portfolio.totalChangeAmount,
+        change: data.portfolio.totalChange,
+        changeDirection: data.portfolio.totalChangeDirection
+      };
+      this.stocks = data.stocks.stocksDetail;
+      this.goals = data.goals;
+      this.total = this.portfolioStocks.length;
+      this.progress = false;
+    });
+  }
+
   add() {
-    this.addDialog = this.dialog.open(PortfolioAddComponent);
+    const addDialog = this.dialog.open(PortfolioAddComponent);
+    addDialog.afterClosed().subscribe(result => {
+      if (result !== 'cancel') {
+        this.updateContent();
+      }
+    });
   }
 
   edit() {
