@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { SignupComponent } from '../authentication/signup/signup.component';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [MenuComponent],
