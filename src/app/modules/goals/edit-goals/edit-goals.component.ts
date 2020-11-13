@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { GoalsData } from '../../interfaces';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GoalsInformationFormat } from '../../interfaces';
 import { GoalsService } from '../goals.service';
 
 @Component({
