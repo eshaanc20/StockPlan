@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from '../../authentication/login.service';
 import { PortfolioTotalData, GoalsData, StockData, PortfolioStockData } from '../../interfaces';
 import { PortfolioAddComponent } from '../portfolio-add/portfolio-add.component';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { PortfolioService } from '../portfolio.service';
 
 @Component({
