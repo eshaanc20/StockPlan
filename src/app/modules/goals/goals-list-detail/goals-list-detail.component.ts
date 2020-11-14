@@ -19,6 +19,7 @@ export class GoalsListDetailComponent implements OnInit {
   goalsList: GoalsData[];
   private addDialog: any;
   private editDialog: any;
+  editMode = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -59,10 +60,14 @@ export class GoalsListDetailComponent implements OnInit {
   }
 
   editGoals() {
+    this.editMode = true;
     this.editDialog = this.dialog.open(EditGoalsComponent, {
       data: {
         goalsList: this.goalsList
       }
+    });
+    this.editDialog.afterClosed().subscribe(result => {
+      this.editMode = false;
     });
   }
 
