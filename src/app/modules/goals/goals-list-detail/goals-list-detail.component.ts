@@ -32,24 +32,30 @@ export class GoalsListDetailComponent implements OnInit {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
-          this.goals.getGoalsDetail(this.listId).subscribe(list => {
-            this.listName = list.name;
-            this.goalsList = list.goalsDetail;
-            this.listLength = list.goalsDetail.length;
-          });
+          this.updateContent();
         });
       } else {
-        this.goals.getGoalsDetail(this.listId).subscribe(list => {
-          this.listName = list.name;
-          this.goalsList = list.goalsDetail;
-          this.listLength = list.goalsDetail.length;
-        });
+        this.updateContent()
       }
+    });
+  }
+
+  updateContent() {
+    this.goals.getGoalsDetail(this.listId).subscribe(list => {
+      this.listName = list.name;
+      this.goalsList = list.goalsDetail;
+      this.listLength = list.goalsDetail.length;
     });
   }
 
   addNewGoal() {
     this.addDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
+    this.addDialog.afterClosed().subscribe(result => {
+      console.log(result)
+      if (result !== 'cancel') {
+        this.updateContent();
+      }
+    })
   }
 
   editGoals() {
@@ -59,4 +65,5 @@ export class GoalsListDetailComponent implements OnInit {
       }
     });
   }
+
 }

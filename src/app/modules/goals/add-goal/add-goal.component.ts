@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -38,11 +38,8 @@ export class AddGoalComponent implements OnInit {
     this.goals.addGoal(this.currentList, this.title.value, this.goalType.value, this.description.value,
       this.stock.value, dateValidUntil, this.goalParameter.value, this.targetNumber.value).subscribe(res => {
       this.progress = false;
+      console.log("closing")
       this.dialog.close();
     });
-  }
-
-  close() {
-    this.dialog.close();
   }
 }
