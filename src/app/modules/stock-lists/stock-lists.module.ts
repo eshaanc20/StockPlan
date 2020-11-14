@@ -33,7 +33,7 @@ import { StockSecondComponent } from './stock-second/stock-second.component';
     HttpClientModule,
     MatFormFieldModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   exports: [StockListsComponent, StockSecondComponent],
   providers: [LoginService, StockListsService],

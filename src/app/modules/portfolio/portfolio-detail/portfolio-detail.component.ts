@@ -26,36 +26,10 @@ export class PortfolioDetailComponent implements OnInit {
   ngOnInit() {
     this.progress = true;
     if (this.loginService.getLoginStatus()) {
-      this.portfolioService.getPortfolio().subscribe(data => {
-        this.portfolioStocks = data.portfolio.stocksDetail;
-        this.totalPortfolioData = {
-          bookValue: data.portfolio.totalBookValue,
-          marketValue: data.portfolio.totalMarketValue,
-          changeAmount: data.portfolio.totalChangeAmount,
-          change: data.portfolio.totalChange,
-          changeDirection: data.portfolio.totalChangeDirection
-        };
-        this.stocks = data.stocks.stocksDetail;
-        this.goals = data.goals;
-        this.total = this.portfolioStocks.length;
-        this.progress = false;
-      });
+      this.updateContent();
     } else {
       this.loginService.user.subscribe(res => {
-        this.portfolioService.getPortfolio().subscribe(data => {
-          this.portfolioStocks = data.portfolio.stocksDetail;
-          this.totalPortfolioData = {
-            bookValue: data.portfolio.totalBookValue,
-            marketValue: data.portfolio.totalMarketValue,
-            changeAmount: data.portfolio.totalChangeAmount,
-            change: data.portfolio.totalChange,
-            changeDirection: data.portfolio.totalChangeDirection
-          };
-          this.stocks = data.stocks.stocksDetail;
-          this.goals = data.goals;
-          this.total = this.portfolioStocks.length;
-          this.progress = false;
-        });
+        this.updateContent();
       });
     }
   }

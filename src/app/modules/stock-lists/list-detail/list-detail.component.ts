@@ -35,38 +35,28 @@ export class ListDetailComponent implements OnInit {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
-          this.stockListService.getStockDetails(this.listId).subscribe(list => {
-            this.progress = false;
-            this.listName = list.name;
-            this.listLength = list.length;
-            this.stocks = list.stockDetail;
-            this.totalChange = list.totalChange;
-            this.totalChangeAmount = list.totalChangeAmount;
-            if (list.totalChange === 'increase') {
-              this.priceColor = 'green';
-              this.priceIncrease = true;
-            } else {
-              this.priceColor = 'red';
-              this.priceIncrease = false;
-            }
-          });
+          this.updateContent();
         });
       } else {
-        this.stockListService.getStockDetails(this.listId).subscribe(list => {
-          this.progress = false;
-          this.listName = list.name;
-          this.listLength = list.length;
-          this.stocks = list.stockDetail;
-          this.totalChange = list.totalChange;
-          this.totalChangeAmount = list.totalChangeAmount;
-          if (list.totalChange === 'increase') {
-            this.priceColor = 'green';
-            this.priceIncrease = true;
-          } else {
-            this.priceColor = 'red';
-            this.priceIncrease = false;
-          }
-        });
+        this.updateContent();
+      }
+    });
+  }
+
+  updateContent() {
+    this.stockListService.getStockDetails(this.listId).subscribe(list => {
+      this.progress = false;
+      this.listName = list.name;
+      this.listLength = list.length;
+      this.stocks = list.stockDetail;
+      this.totalChange = list.totalChange;
+      this.totalChangeAmount = list.totalChangeAmount;
+      if (list.totalChange === 'increase') {
+        this.priceColor = 'green';
+        this.priceIncrease = true;
+      } else {
+        this.priceColor = 'red';
+        this.priceIncrease = false;
       }
     });
   }
@@ -75,6 +65,11 @@ export class ListDetailComponent implements OnInit {
     this.newDialog = this.dialog.open(AddStockComponent, {
       data: {
         listNumber: this.listId
+      }
+    });
+    this.newDialog.afterClosed().subscribe(result => {
+      if (result !== 'cancel') {
+        this.updateContent();
       }
     });
   }
