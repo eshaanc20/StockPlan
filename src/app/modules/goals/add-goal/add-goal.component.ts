@@ -38,7 +38,6 @@ export class AddGoalComponent implements OnInit {
     this.goals.addGoal(this.currentList, this.title.value, this.goalType.value, this.description.value,
       this.stock.value, dateValidUntil, this.goalParameter.value, this.targetNumber.value).subscribe(res => {
       this.progress = false;
-      console.log("closing")
       this.dialog.close();
     });
   }

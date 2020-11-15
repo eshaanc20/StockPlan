@@ -51,7 +51,6 @@ export class GoalsListDetailComponent implements OnInit {
   addNewGoal() {
     this.addDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
     this.addDialog.afterClosed().subscribe(result => {
-      console.log(result)
       if (result !== 'cancel') {
         this.updateContent();
       }
