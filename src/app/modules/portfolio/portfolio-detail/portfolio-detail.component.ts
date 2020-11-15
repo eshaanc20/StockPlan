@@ -61,8 +61,7 @@ export class PortfolioDetailComponent implements OnInit {
   }
 
   edit() {
-    const editStatus = this.editMode;
-    this.editMode = !editStatus;
+    this.editMode = !this.editMode;
   }
 
 }

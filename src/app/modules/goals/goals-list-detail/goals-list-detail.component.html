@@ -6,7 +6,7 @@
                 <button mat-mini-fab (click)="addNewGoal()" color="primary" style="margin-right: 10px;">
                     <mat-icon>add</mat-icon>
                 </button>
-                <button mat-mini-fab [ngStyle]="{'background-color': editMode? 'white': 'darkorange'}" (click)="editGoals()">
+                <button mat-mini-fab [ngStyle]="{'background-color': editMode? 'white': 'darkorange'}" (click)="edit()">
                     <mat-icon [ngStyle]="{'color': editMode? 'darkorange': 'white'}">settings</mat-icon>
                 </button>
             </div>
@@ -16,7 +16,7 @@
     <hr style="margin-top: 0px;">
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
         <div *ngFor="let goalDetail of goalsList" style="margin-right: 25px">
-            <app-goal [goal]="goalDetail"></app-goal>
+            <app-goal [goal]="goalDetail" [edit]="editMode" (update)="this.updateAfterEdit($event)"></app-goal>
         </div>
     </div>
 </div>

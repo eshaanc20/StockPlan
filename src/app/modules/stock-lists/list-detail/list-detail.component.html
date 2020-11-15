@@ -3,12 +3,12 @@
         <p style="font-size: 35px; margin: 0px; margin-bottom: 5px;">{{listName}}</p>
         <div style="display: flex; flex-wrap: wrap;">
             <div style="padding-top: 2px;">
-                <button mat-mini-fab (click)="add()" color="primary" style="margin-right: 0px;">
+                <button mat-mini-fab (click)="add()" color="primary" style="margin-right: 10px;">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>
             <div style="display: flex; flex-wrap: wrap; margin-bottom: 5px;">
-                <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 10px">{{listLength}} stocks</p>
+                <p style="font-size: 35px; color: gray; margin: 0px; padding-right: 10px; padding-left: 20px">{{listLength}} stocks</p>
                 <p style="padding-right: 5px; font-size: 30px; margin: 0px; color: gray">|</p>
                 <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="priceIncrease">arrow_upward</mat-icon>
                 <mat-icon style="font-size: 45px;" [ngStyle]="{'color': priceColor}" *ngIf="!priceIncrease">arrow_downward</mat-icon>

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GoalsData } from '../../interfaces';
+import { GoalsService } from '../goals.service';
 
 @Component({
   selector: 'app-goal',
@@ -8,9 +9,11 @@ import { GoalsData } from '../../interfaces';
 })
 export class GoalComponent implements OnInit {
   @Input() goal: GoalsData;
+  @Input() edit: boolean;
   status: string;
+  @Output() update = new EventEmitter<boolean>()
 
-  constructor() { }
+  constructor(private goalService: GoalsService) { }
 
   ngOnInit() {
     if (this.goal.goalCompleted) {
@@ -18,6 +21,13 @@ export class GoalComponent implements OnInit {
     } else {
       this.status = 'Active';
     }
+  }
+
+  delete(id) {
+    console.log(id)
+    this.goalService.deleteGoal(id).subscribe(result => {
+      this.update.emit(true);
+    });
   }
 
 }

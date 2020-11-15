@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
 import { GoalsData } from '../../interfaces';
 import { AddGoalComponent } from '../add-goal/add-goal.component';
-import { EditGoalsComponent } from '../edit-goals/edit-goals.component';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -59,16 +58,11 @@ export class GoalsListDetailComponent implements OnInit {
     })
   }
 
-  editGoals() {
-    this.editMode = true;
-    this.editDialog = this.dialog.open(EditGoalsComponent, {
-      data: {
-        goalsList: this.goalsList
-      }
-    });
-    this.editDialog.afterClosed().subscribe(result => {
-      this.editMode = false;
-    });
+  edit() {
+    this.editMode = !this.editMode;
   }
 
+  updateAfterEdit(event) {
+    this.updateContent();
+  }
 }
