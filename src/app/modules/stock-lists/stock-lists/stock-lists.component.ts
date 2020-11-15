@@ -25,8 +25,8 @@ export class StockListsComponent implements OnInit {
         });
       });
     } else {
-      this.stockListService.getAllLists().subscribe(res => {
-        this.stockLists = res.allLists;
+      this.stockListService.getAllLists().subscribe(lists => {
+        this.stockLists = lists.allLists;
       });
     }
   }

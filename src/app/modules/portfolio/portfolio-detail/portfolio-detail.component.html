@@ -1,0 +1,43 @@
+<div style="width: 95%; margin: auto;">
+    <div class='portfolio-menu'>
+        <div class='portfolio-menu-content'>
+            <p style="margin: 0px; font-size: 35px">Portfolio</p>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div class="summary">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 10px;">
+                <div>
+                    <p style="font-size: 26px; margin-top: 0px; margin-bottom: 0px; color: gray;">{{total}} stocks</p>
+                </div>
+                <div style="display: flex;">
+                    <button mat-mini-fab (click)="add()" color="primary" style="margin-right: 10px">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button mat-mini-fab [ngStyle]="{'background-color': editMode? 'white': 'darkorange'}" (click)="edit()">
+                        <mat-icon [ngStyle]="{'color': editMode? 'darkorange': 'white'}">settings</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div *ngIf="!progress">
+                    <app-summary [stocks]="portfolioStocks" [total]="totalPortfolioData" [edit]="editMode"></app-summary>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <p style="font-size: 26px; margin: 10px">Stocks</p>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div *ngFor="let stockDetail of stocks" style="margin-right: 20px;">
+                        <app-stock-second [stock]="stockDetail"></app-stock-second>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <p style="font-size: 26px; margin-bottom: 10px; margin-top: 10px">Goals</p>
+            <div *ngFor="let goalDetail of goals">
+                <app-goal-small [goal]="goalDetail"></app-goal-small>
+            </div>
+        </div>
+    </div>
+</div>

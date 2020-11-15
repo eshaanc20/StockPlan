@@ -1,0 +1,9 @@
+.summary-table {
+    width: 100%;
+}
+
+.summary-component {
+    box-shadow: 0px 0px 5px lightgray;
+    width: 100%;
+    margin: auto;
+}

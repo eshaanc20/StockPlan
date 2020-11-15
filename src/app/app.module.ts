@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomepageModule } from './modules/homepage/homepage.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { PortfolioModule } from './modules/portfolio/portfolio.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     BrowserAnimationsModule,
     FormsModule,
     HomepageModule,
-    DashboardModule
+    DashboardModule,
+    PortfolioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

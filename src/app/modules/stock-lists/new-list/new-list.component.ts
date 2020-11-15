@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { StockListsService } from '../stock-lists.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { StockListsService } from '../stock-lists.service';
 export class NewListComponent implements OnInit {
   progress = false;
 
-  constructor(private stockListsService: StockListsService) { }
+  constructor(private stockListsService: StockListsService, private dialog: MatDialogRef<NewListComponent>) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,7 @@ export class NewListComponent implements OnInit {
     this.progress = true;
     this.stockListsService.addNewList(f.value.listName).subscribe(res => {
       this.progress = false;
+      this.dialog.close();
     });
   }
 

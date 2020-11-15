@@ -17,25 +17,25 @@ export class MenuComponent implements OnInit {
   homepage: boolean;
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router) {
-    if (router.url === '/') {
+   }
+
+  ngOnInit() {
+    if (this.router.url === '/') {
       this.homepage = true;
     } else {
       this.homepage = false;
     }
     const currentToken = localStorage.getItem('currentToken');
     if (currentToken) {
-      loginService.verifyToken(currentToken);
+      this.loginService.verifyToken(currentToken);
     }
-    loginService.user.subscribe(res => {
+    this.loginService.user.subscribe(res => {
       this.userFirstName = res.getFirstName();
       this.loggedIn = true;
-      if (router.url !== '/') {
+      if (this.router.url !== '/') {
         this.homepage = false;
       }
     });
-   }
-
-  ngOnInit() {
   }
 
   open() {

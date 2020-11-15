@@ -2,28 +2,33 @@
     <div style="display: flex;">
         <app-progress [progressValue]="goal.progress" [text]="goal.currentValue"></app-progress>
         <div style="margin-left: 20px; width: 100%">
-            <p style="font-size: 20px; margin: 0px;">{{goal.title}}</p>
+            <p style="font-size: 18px; margin: 0px;">{{goal.title}}</p>
             <hr style="color: gray; width: 100%">
             <div style="display: flex; justify-content: space-between;">
-                <p style="color: #1e70eb; font-size: 18px; margin: 0px">{{goal.stock}}</p>
-                <p style="color: gray; font-size: 18px; margin: 0px">{{goal.goalType}}</p>
+                <p style="color: #1e70eb; font-size: 16px; margin: 0px">{{goal.stock}}</p>
+                <p style="color: gray; font-size: 16px; margin: 0px">{{goal.goalType}}</p>
             </div>
             <div style="margin-top: 5px; display: flex; justify-content: space-between;">
-                <p style="font-size: 18px; margin: 0px;">{{goal.goalParameter}}</p>
-                <p style="font-size: 18px; margin: 0px;">${{goal.goalTargetNumber}}</p>
+                <p style="font-size: 16px; margin: 0px;">{{goal.goalParameter}}</p>
+                <p style="font-size: 16px; margin: 0px;">${{goal.goalTargetNumber}}</p>
             </div>
         </div>
     </div>
     <div style="display: flex; justify-content: space-between;">
         <div style="width: 60%">
-            <p style="font-size: 18px; margin-bottom: 0px">Description</p>
+            <p style="font-size: 16px; margin-bottom: 0px">Description</p>
             <p style="margin: 0px;">{{goal.description}}</p>
         </div>
         <div>
-            <p style="font-size: 18px; margin-bottom: 0px">Valid Until</p>
+            <p style="font-size: 16px; margin-bottom: 0px">Valid Until</p>
             <p style="margin: 0px">{{goal.validUntil}}</p>
-            <p style="margin-bottom: 0px; font-size: 18px; ">Status</p>
+            <p style="margin-bottom: 0px; font-size: 16px; margin-top: 5px;">Status</p>
             <p style="margin: 0px; color: green">{{status}}</p>
         </div>
+    </div>
+    <div *ngIf="edit" style="display: flex; justify-content: flex-end;">
+        <button mat-icon-button style="margin-top: 4px;" (click)="delete(goal.id)">
+            <mat-icon style="font-size: 25px; color: darkorange">delete</mat-icon>
+        </button>
     </div>
 </div>

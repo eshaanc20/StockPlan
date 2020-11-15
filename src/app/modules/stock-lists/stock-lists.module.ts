@@ -17,11 +17,12 @@ import { ListDetailComponent } from './list-detail/list-detail.component';
 import { RouterModule } from '@angular/router';
 import { StockComponent } from './stock/stock.component';
 import { AddStockComponent } from './add-stock/add-stock.component';
+import { StockSecondComponent } from './stock-second/stock-second.component';
 
 
 
 @NgModule({
-  declarations: [StockListsComponent, NewListComponent, ListDetailComponent, StockComponent, AddStockComponent],
+  declarations: [StockListsComponent, NewListComponent, ListDetailComponent, StockComponent, AddStockComponent, StockSecondComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -32,9 +33,9 @@ import { AddStockComponent } from './add-stock/add-stock.component';
     HttpClientModule,
     MatFormFieldModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
-  exports: [StockListsComponent],
+  exports: [StockListsComponent, StockSecondComponent],
   providers: [LoginService, StockListsService],
   entryComponents: [
     NewListComponent,

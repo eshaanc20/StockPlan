@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { GoalsInformationFormat } from '../../interfaces';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GoalsData } from '../../interfaces';
+import { GoalsService } from '../goals.service';
 
 @Component({
   selector: 'app-goal',
@@ -7,18 +8,26 @@ import { GoalsInformationFormat } from '../../interfaces';
   styleUrls: ['./goal.component.css']
 })
 export class GoalComponent implements OnInit {
-  @Input() goal: GoalsInformationFormat;
+  @Input() goal: GoalsData;
+  @Input() edit: boolean;
   status: string;
+  @Output() update = new EventEmitter<boolean>()
 
-  constructor() { }
+  constructor(private goalService: GoalsService) { }
 
   ngOnInit() {
-    console.log(this.goal.progress)
     if (this.goal.goalCompleted) {
       this.status = 'Completed';
     } else {
       this.status = 'Active';
     }
+  }
+
+  delete(id) {
+    console.log(id)
+    this.goalService.deleteGoal(id).subscribe(result => {
+      this.update.emit(true);
+    });
   }
 
 }

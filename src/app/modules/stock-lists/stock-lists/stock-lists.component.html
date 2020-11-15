@@ -1,7 +1,7 @@
 <div>
     <div style="border-bottom: 1px solid lightgray">
         <div class="navigation-title">
-            <p>Stock Lists</p>
+            <p>Stocks</p>
             <button mat-icon-button class="navigation-add-button" (click)="addNewList()">
                 <mat-icon>add</mat-icon>
             </button>
@@ -9,7 +9,12 @@
     </div>
     <div *ngFor="let list of stockLists">
         <div>
-            <a mat-button class="navigation-lists-button" [routerLink]="['/dashboard/list/'+list.listNumber]">{{list.name}}</a>
+            <a mat-button class="navigation-lists-button" [routerLink]="['/dashboard/list/'+list.listNumber]">
+                <div style="display: flex; justify-content: space-between;">
+                    <p style="margin: 0px">{{list.name}}</p>
+                    <p style="margin: 0px; color: gray">{{list.stocks.length}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-export interface StockInformationFormat {
+export interface StockData {
     symbol: string;
     current: number;
     open: number;
@@ -15,9 +15,9 @@ export interface StockInformationFormat {
     dividendYield: number;
     profitEarningRatio: number;
     betaValue: number;
-  }
+}
 
-export interface GoalsInformationFormat {
+export interface GoalsData {
   title: string;
   goalType: string;
   description: string;
@@ -29,5 +29,33 @@ export interface GoalsInformationFormat {
   goalCompletedDate: string;
   currentValue: number;
   progress: number;
-  goalId: string;
+  id: string;
+}
+
+export interface PortfolioStockData {
+  stock: string;
+  shares: number;
+  price: number;
+  bookValue: number;
+  marketValue: number;
+  change: number;
+  changeAmount: number;
+  changeDirection: string;
+  id: string;
+}
+
+export interface StockSummaryData {
+  symbol: string;
+  current: number;
+  change: string;
+  percentChange: string;
+  amountChange: number;
+}
+
+export interface PortfolioTotalData {
+  bookValue: number;
+  marketValue: number;
+  changeAmount: number;
+  change: number;
+  changeDirection: string;
 }

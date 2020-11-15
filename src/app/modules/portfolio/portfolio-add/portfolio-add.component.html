@@ -1,0 +1,24 @@
+<div class='add-portfolio-form-component'>
+    <p class="title">Add to Portfolio</p>
+    <form class='new-portfolio-form' #f='ngForm' (ngSubmit)="add(f)">
+        <mat-form-field appearance='outline' style="width:250px">
+            <mat-label>Stock Symbol</mat-label>
+            <input matInput ngModel name='stockSymbol'>
+        </mat-form-field>
+        <mat-form-field appearance='outline' style="width:250px">
+            <mat-label>Shares</mat-label>
+            <input matInput ngModel name='shares'>
+        </mat-form-field>
+        <mat-form-field appearance='outline' style="width:250px">
+            <mat-label>Price</mat-label>
+            <input matInput ngModel name='price'>
+        </mat-form-field>
+        <div style="display: flex; justify-content: space-between;">
+            <div></div>
+            <div mat-dialog-actions>
+                <button mat-button type="button" [mat-dialog-close]="'cancel'">Close</button>
+                <button mat-raised-button color="primary" style="margin-left: 10px">Add Stock</button>
+            </div>
+        </div>
+    </form>
+</div>

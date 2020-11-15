@@ -33,4 +33,9 @@
     <div style="display: flex; justify-content: space-between;">
         <p style="margin: 0px">Beta: {{stock.betaValue}}</p>
     </div>
+    <div *ngIf="edit" style="display: flex; justify-content: flex-end;">
+        <button mat-icon-button style="margin-top: 4px;" (click)="delete(listId, stock.symbol)">
+            <mat-icon style="font-size: 25px; color: darkorange">delete</mat-icon>
+        </button>
+    </div>
 </div>

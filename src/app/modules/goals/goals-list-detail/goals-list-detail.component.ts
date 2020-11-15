@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../authentication/login.service';
-import { GoalsInformationFormat } from '../../interfaces';
+import { GoalsData } from '../../interfaces';
 import { AddGoalComponent } from '../add-goal/add-goal.component';
-import { EditGoalsComponent } from '../edit-goals/edit-goals.component';
 import { GoalsService } from '../goals.service';
 
 @Component({
@@ -16,9 +15,11 @@ export class GoalsListDetailComponent implements OnInit {
   listId: string;
   listName: string;
   listLength: number;
-  goalsList: GoalsInformationFormat[];
+  goalsList: GoalsData[];
   private addDialog: any;
   private editDialog: any;
+  editMode = false;
+  progress: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,35 +29,43 @@ export class GoalsListDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.progress = true;
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
-          this.goals.getGoalsDetail(this.listId).subscribe(list => {
-            this.listName = list.name;
-            this.goalsList = list.goalsDetail;
-            this.listLength = list.goalsDetail.length;
-          });
+          this.updateContent();
+          this.progress = false;
         });
       } else {
-        this.goals.getGoalsDetail(this.listId).subscribe(list => {
-          this.listName = list.name;
-          this.goalsList = list.goalsDetail;
-          this.listLength = list.goalsDetail.length;
-        });
+        this.updateContent();
+        this.progress = false;
       }
+    });
+  }
+
+  updateContent() {
+    this.goals.getGoalsDetail(this.listId).subscribe(list => {
+      this.listName = list.name;
+      this.goalsList = list.goalsDetail;
+      this.listLength = list.goalsDetail.length;
     });
   }
 
   addNewGoal() {
     this.addDialog = this.dialog.open(AddGoalComponent, {data: {listNumber: this.listId}});
+    this.addDialog.afterClosed().subscribe(result => {
+      if (result !== 'cancel') {
+        this.updateContent();
+      }
+    })
   }
 
-  editGoals() {
-    this.editDialog = this.dialog.open(EditGoalsComponent, {
-      data: {
-        goalsList: this.goalsList
-      }
-    });
+  edit() {
+    this.editMode = !this.editMode;
+  }
+
+  updateAfterDelete(event) {
+    this.updateContent();
   }
 }

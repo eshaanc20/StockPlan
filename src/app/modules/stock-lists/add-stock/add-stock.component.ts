@@ -29,8 +29,4 @@ export class AddStockComponent implements OnInit {
       this.dialog.close();
     });
   }
-
-  close() {
-    this.dialog.close();
-  }
 }

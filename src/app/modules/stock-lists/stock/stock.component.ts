@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { StockInformationFormat } from '../../interfaces';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { StockData } from '../../interfaces';
+import { StockListsService } from '../stock-lists.service';
 
 
 @Component({
@@ -8,13 +9,16 @@ import { StockInformationFormat } from '../../interfaces';
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
-  @Input() stock: StockInformationFormat;
+  @Input() stock: StockData;
+  @Input() edit: boolean;
+  @Input() listId: string;
+  @Output() update = new EventEmitter<boolean>();
   priceColor: string;
   priceIncrease: boolean;
   marketCap: number;
   marketCapDetail: string;
 
-  constructor() { }
+  constructor(private stockListsService: StockListsService) { }
 
   ngOnInit() {
     this.priceColor = this.stock.change === 'increase' ? 'green' : 'red';
@@ -29,5 +33,11 @@ export class StockComponent implements OnInit {
       this.marketCap = (Math.round(this.stock.marketCap / 100)) * 100;
       this.marketCapDetail = 'M';
     }
+  }
+
+  delete(listId: string, stock: string) {
+    this.stockListsService.delete(listId, stock).subscribe(res => {
+      this.update.emit(true);
+    })
   }
 }

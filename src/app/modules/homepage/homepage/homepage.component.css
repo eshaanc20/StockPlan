@@ -1,18 +1,14 @@
 .homepage {
-    border: 1px solid black;
-    position: absolute;
-    z-index: -1;
-    border-top: 100vh solid #1468e7;
-    border-right: 100vw solid transparent;
+    background-color: #1e70eb;
+    height: 100vh;
 }
 
 .homepage-content {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
-    margin-top: 10%;
     flex-wrap: wrap;
+    margin-top: 100px;
 }
 
 .homepage-login-form-component {
@@ -23,5 +19,5 @@
     flex: 20%;
     color: white;
     font-size: 75px;
-    margin-left: 50px;
+    margin-left: 80px;
 }

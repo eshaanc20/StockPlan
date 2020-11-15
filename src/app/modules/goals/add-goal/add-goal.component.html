@@ -46,9 +46,9 @@
         </div>
         <div style="display: flex; justify-content: flex-end;">
             <div></div>
-            <div>
-                <button mat-button type="button" (click)="close()">Close</button>
-                <button mat-raised-button class='button' style="margin-left: 10px" type="submit">Add Goal to List</button>
+            <div mat-dialog-actions>
+                <button mat-button type="button" [mat-dialog-close]="'cancel'">Close</button>
+                <button mat-raised-button color="primary" style="margin-left: 10px" type="submit">Add Goal to List</button>
             </div>
         </div>
     </form>

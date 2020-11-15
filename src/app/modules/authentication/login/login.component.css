@@ -6,7 +6,7 @@
 
 .login-form-component {
     border: 1px solid lightgray;
-    box-shadow: 0px 5px 5px lightgray;
+    box-shadow: 0px 0px 10px rgb(12, 76, 172);
     width: 50%;
     padding-left: 40px;
     padding-right: 40px;
@@ -22,7 +22,7 @@
 }
 
 .button1{
-    background-color: #1468e7;
+    background-color: #4183e6;
     color: white;
     width: 100px;
     margin: auto;

@@ -20,7 +20,8 @@ import { LoginService } from '../authentication/login.service';
 import { GoalsService } from './goals.service';
 import { GoalComponent } from './goal/goal.component';
 import { ProgressComponent } from './progress/progress.component';
-import { EditGoalsComponent } from './edit-goals/edit-goals.component';
+import { GoalSmallComponent } from './goal-small/goal-small.component';
+import { ProgressSecondComponent } from './progress-second/progress-second.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditGoalsComponent } from './edit-goals/edit-goals.component';
     AddGoalComponent,
     GoalComponent,
     ProgressComponent,
-    EditGoalsComponent
+    GoalSmallComponent,
+    ProgressSecondComponent
   ],
   imports: [
     CommonModule,
@@ -51,13 +53,13 @@ import { EditGoalsComponent } from './edit-goals/edit-goals.component';
     MatProgressSpinnerModule
   ],
   exports: [
-    GoalListsComponent
+    GoalListsComponent,
+    GoalSmallComponent
   ],
   providers: [LoginService, GoalsService],
   entryComponents: [
     NewGoalsListComponent,
     AddGoalComponent,
-    EditGoalsComponent
   ]
 })
 export class GoalsModule { }
