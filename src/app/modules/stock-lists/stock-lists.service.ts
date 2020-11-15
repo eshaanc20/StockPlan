@@ -63,8 +63,8 @@ export class StockListsService {
     }));
   }
 
-  delete(id) {
-    return this.http.delete('http://localhost:3000/stocks/' + id, {
+  delete(listId: string, stock: string) {
+    return this.http.delete('http://localhost:3000/stocks/list/' + listId + "/" + stock, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }

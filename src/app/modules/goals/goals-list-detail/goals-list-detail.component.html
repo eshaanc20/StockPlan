@@ -16,7 +16,7 @@
     <hr style="margin-top: 0px;">
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin-top: 20px">
         <div *ngFor="let goalDetail of goalsList" style="margin-right: 25px">
-            <app-goal [goal]="goalDetail" [edit]="editMode" (update)="this.updateAfterEdit($event)"></app-goal>
+            <app-goal [goal]="goalDetail" [edit]="editMode" (update)="this.updateAfterDelete($event)"></app-goal>
         </div>
     </div>
 </div>

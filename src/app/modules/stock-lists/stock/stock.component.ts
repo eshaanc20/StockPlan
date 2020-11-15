@@ -11,6 +11,7 @@ import { StockListsService } from '../stock-lists.service';
 export class StockComponent implements OnInit {
   @Input() stock: StockData;
   @Input() edit: boolean;
+  @Input() listId: string;
   @Output() update = new EventEmitter<boolean>();
   priceColor: string;
   priceIncrease: boolean;
@@ -32,5 +33,11 @@ export class StockComponent implements OnInit {
       this.marketCap = (Math.round(this.stock.marketCap / 100)) * 100;
       this.marketCapDetail = 'M';
     }
+  }
+
+  delete(listId: string, stock: string) {
+    this.stockListsService.delete(listId, stock).subscribe(res => {
+      this.update.emit(true);
+    })
   }
 }

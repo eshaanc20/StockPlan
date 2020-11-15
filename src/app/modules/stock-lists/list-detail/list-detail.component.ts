@@ -22,6 +22,7 @@ export class ListDetailComponent implements OnInit {
   priceIncrease: boolean;
   progress: boolean;
   private newDialog: any;
+  editMode: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -72,5 +73,13 @@ export class ListDetailComponent implements OnInit {
         this.updateContent();
       }
     });
+  }
+  
+  edit() {
+    this.editMode = !this.editMode;
+  }
+
+  updateAfterDelete(event) {
+    this.updateContent();
   }
 }

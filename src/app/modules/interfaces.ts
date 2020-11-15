@@ -15,7 +15,6 @@ export interface StockData {
     dividendYield: number;
     profitEarningRatio: number;
     betaValue: number;
-    id: string;
 }
 
 export interface GoalsData {

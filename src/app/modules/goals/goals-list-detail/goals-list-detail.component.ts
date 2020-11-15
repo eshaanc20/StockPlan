@@ -61,7 +61,7 @@ export class GoalsListDetailComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
-  updateAfterEdit(event) {
+  updateAfterDelete(event) {
     this.updateContent();
   }
 }
