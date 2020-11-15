@@ -19,6 +19,7 @@ export class GoalsListDetailComponent implements OnInit {
   private addDialog: any;
   private editDialog: any;
   editMode = false;
+  progress: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,14 +29,17 @@ export class GoalsListDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.progress = true;
     this.route.params.subscribe(params => {
       this.listId = params.listNumber;
       if (!this.loginService.getLoginStatus()) {
         this.loginService.user.subscribe(res => {
           this.updateContent();
+          this.progress = false;
         });
       } else {
-        this.updateContent()
+        this.updateContent();
+        this.progress = false;
       }
     });
   }
