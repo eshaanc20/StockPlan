@@ -62,4 +62,17 @@ export class StockListsService {
       return resData;
     }));
   }
+
+  delete(id) {
+    return this.http.delete('http://localhost:3000/stocks/' + id, {
+      headers: {
+        authentication: 'Bearer ' + this.loginService.getLoginToken()
+      }
+    }).pipe(map(res => {
+      let resData;
+      resData = {...res};
+      return resData;
+    }));
+  }
+
 }

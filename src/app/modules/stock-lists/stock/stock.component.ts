@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StockData } from '../../interfaces';
+import { StockListsService } from '../stock-lists.service';
 
 
 @Component({
@@ -9,12 +10,14 @@ import { StockData } from '../../interfaces';
 })
 export class StockComponent implements OnInit {
   @Input() stock: StockData;
+  @Input() edit: boolean;
+  @Output() update = new EventEmitter<boolean>();
   priceColor: string;
   priceIncrease: boolean;
   marketCap: number;
   marketCapDetail: string;
 
-  constructor() { }
+  constructor(private stockListsService: StockListsService) { }
 
   ngOnInit() {
     this.priceColor = this.stock.change === 'increase' ? 'green' : 'red';
