@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDialogModule,
     AuthenticationModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     MenuComponent

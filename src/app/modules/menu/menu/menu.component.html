@@ -8,9 +8,17 @@
         <button mat-raised-button style="background-color: rgb(82, 81, 81); color: white;" (click)="login()">Logged in as {{userFirstName}}</button>
     </div>
     <div *ngIf="loggedIn && !homepage" style="display: flex;">
-        <div style="margin-top: 19px; margin-right: 15px;">
+        <div style="margin-top: 10px; margin-right: 15px;">
             <mat-icon style="font-size: 35px;">account_circle</mat-icon>
         </div>
-        <p>{{userFirstName}}</p>
+        <button mat-button [matMenuTriggerFor]="menu" style="font-size: 18px; padding-left: 5px;">
+            <div style="display: flex">
+                {{userFirstName}}
+                <mat-icon style="margin-top: 4px; font-size: 30px;">keyboard_arrow_down</mat-icon>
+            </div>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item style="font-size: 15px;">Log out</button>
+        </mat-menu>
     </div>
 </mat-toolbar>
