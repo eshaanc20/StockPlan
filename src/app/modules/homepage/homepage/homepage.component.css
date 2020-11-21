@@ -1,6 +1,6 @@
 .homepage {
-    background-color: #1e70eb;
-    height: 100vh;
+    background: linear-gradient(rgb(25, 117, 223), rgb(31, 148, 243));
+    height: 350px;
 }
 
 .homepage-content {
