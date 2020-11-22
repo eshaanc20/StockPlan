@@ -16,8 +16,7 @@
 }
 
 .homepage-title {
-    flex: 20%;
-    color: white;
-    font-size: 75px;
+    flex: 25%;
     margin-left: 80px;
+    z-index: 1;
 }
