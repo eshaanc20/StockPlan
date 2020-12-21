@@ -10,10 +10,10 @@
 }
 
 .signup-form-component{
-    width: 400px;
-    height: 470px;
     padding-right: 40px;
     padding-left: 40px;
+    padding-bottom: 35px;
+    width: 250px;
 }
 
 .button{
