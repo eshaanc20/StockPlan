@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       this.loggedIn = true;
       this.user = res;
       if (res.getNewToken()) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/portfolio']);
       }
     });
     this.loginService.loginError.subscribe(err => {

@@ -43,6 +43,6 @@ export class MenuComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard/portfolio']);
   }
 }
