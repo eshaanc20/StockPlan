@@ -9,7 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     HttpClientModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     LoginComponent,

@@ -1,6 +1,8 @@
 <mat-toolbar [ngClass]="{'menu-toolbar': homepage, 'menu-toolbar-2': !homepage}">
     <p *ngIf="homepage">Stock<span style="color: rgb(235, 151, 83)">Plan</span></p>
-    <p *ngIf="!homepage">Stock<span style="color: rgb(235, 151, 83)">Plan</span><span> | Plan your stock investments</span></p>
+    <p *ngIf="!homepage">
+        Stock<span style="color: rgb(235, 151, 83)">Plan</span>
+    </p>
     <div *ngIf="!loggedIn && homepage">
         <button mat-raised-button (click)="open()">Sign up</button>
     </div>

@@ -4,11 +4,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
 import { MenuModule } from '../menu/menu.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
+import { SummaryComponent } from './summary/summary.component';
 
 
 
 @NgModule({
-  declarations: [HomepageComponent],
+  declarations: [HomepageComponent, SummaryComponent],
   imports: [
     CommonModule,
     FormsModule,
