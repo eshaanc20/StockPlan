@@ -1,6 +1,8 @@
 .homepage {
-    background-color: #1e70eb;
-    height: 100vh;
+    background: linear-gradient(to left bottom, rgb(35, 158, 167), rgb(0, 153, 255));
+    height: 50vh;
+    position: fixed;
+    width: 100%;
 }
 
 .homepage-content {
@@ -9,6 +11,7 @@
     width: 100%;
     flex-wrap: wrap;
     margin-top: 100px;
+    position: relative;
 }
 
 .homepage-login-form-component {
