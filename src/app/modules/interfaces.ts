@@ -34,7 +34,7 @@ export interface GoalsData {
 
 export interface PortfolioStockData {
   stock: string;
-  shares: number;
+  quantity: number;
   price: number;
   bookValue: number;
   marketValue: number;

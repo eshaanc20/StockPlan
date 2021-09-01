@@ -11,7 +11,7 @@ export class SummaryComponent implements OnInit, OnChanges {
   @Input() stocks: PortfolioStockData[];
   @Input() total: PortfolioTotalData;
   @Input() edit: boolean;
-  tableColumns = ['Symbol', 'Shares', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
+  tableColumns = ['Symbol', 'Quantity', 'Price', 'Book Value', 'Market Value', 'Change Amount', 'Change'];
   tableContent: PortfolioStockData[];
   length: number;
   progress: boolean;

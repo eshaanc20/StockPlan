@@ -1,8 +1,12 @@
 <div class="navigation">
     <div style="margin-top: 20px; height: 90%">
         <div style="margin-top: 0px; display: flex; padding-left: 0px;">
-            <mat-icon style="font-size: 25px; margin-top: 5px; margin-right: 0px; margin-left: 16px;">work_outline</mat-icon>
-            <a mat-button class="navigation-portfolio-button" [routerLink]="['/dashboard/portfolio']">Portfolio</a>
+            <a mat-button class="navigation-portfolio-button" [routerLink]="['/dashboard/portfolio']">
+                <div style="display: flex; height: 40px;">
+                    <mat-icon style="font-size: 25px; margin-top: 5px; padding-top: 0px; margin-right: 8px;">work_outline</mat-icon>
+                    <p style="margin-top: 0px">Portfolio</p>
+                </div>
+            </a>
         </div>
         <app-stock-lists></app-stock-lists>
         <app-goal-lists></app-goal-lists>
