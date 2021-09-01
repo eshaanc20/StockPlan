@@ -45,4 +45,8 @@ export class MenuComponent implements OnInit {
   login() {
     this.router.navigate(['/dashboard']);
   }
+
+  signOut() {
+    this.router.navigate(['../'])
+  }
 }
