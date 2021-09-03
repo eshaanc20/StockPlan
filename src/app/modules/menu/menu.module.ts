@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AuthenticationModule } from '../authentication/authentication.module';
 import { SignupComponent } from '../authentication/signup/signup.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { GoalsModule } from '../goals/goals.module';
 
 @NgModule({
   declarations: [MenuComponent],
@@ -18,7 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDialogModule,
     AuthenticationModule,
-    MatIconModule
+    MatIconModule,
+    MatBadgeModule,
+    GoalsModule
   ],
   exports: [
     MenuComponent

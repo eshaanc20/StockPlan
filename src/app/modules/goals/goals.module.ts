@@ -20,8 +20,11 @@ import { LoginService } from '../authentication/login.service';
 import { GoalsService } from './goals.service';
 import { GoalComponent } from './goal/goal.component';
 import { ProgressComponent } from './progress/progress.component';
-import { GoalSmallComponent } from './goal-small/goal-small.component';
+import { GoalSecondComponent } from './goal-second/goal-second.component';
 import { ProgressSecondComponent } from './progress-second/progress-second.component';
+import { GoalsNotificationComponent } from './goals-notification/goals-notification.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -33,8 +36,9 @@ import { ProgressSecondComponent } from './progress-second/progress-second.compo
     AddGoalComponent,
     GoalComponent,
     ProgressComponent,
-    GoalSmallComponent,
-    ProgressSecondComponent
+    GoalSecondComponent,
+    ProgressSecondComponent,
+    GoalsNotificationComponent
   ],
   imports: [
     CommonModule,
@@ -50,11 +54,14 @@ import { ProgressSecondComponent } from './progress-second/progress-second.compo
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule,
+    MatMenuModule
   ],
   exports: [
     GoalListsComponent,
-    GoalSmallComponent
+    GoalSecondComponent,
+    GoalsNotificationComponent
   ],
   providers: [LoginService, GoalsService],
   entryComponents: [

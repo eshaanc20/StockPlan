@@ -1,0 +1,12 @@
+<div style="padding-left: 30px; padding-right: 30px">
+    <button mat-icon-button style="margin-top: 16px" [mat-menu-trigger-for]="menu">
+        <mat-icon [matBadge]="count" style="font-size: 30px;">announcement</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <div style="width: 500px; padding-left: 20px; margin-top: 10px;">
+            <div *ngFor="let goalDetail of goalsCompleted">
+                <app-goal-second [goal]="goalDetail"></app-goal-second>
+            </div>
+        </div>
+    </mat-menu>
+</div>

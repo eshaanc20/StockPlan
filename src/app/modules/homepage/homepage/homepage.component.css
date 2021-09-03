@@ -1,6 +1,6 @@
 .homepage {
     background: linear-gradient(to left bottom, rgb(35, 158, 167), rgb(0, 153, 255));
-    height: 50vh;
+    height: 350px;
     position: fixed;
     width: 100%;
 }

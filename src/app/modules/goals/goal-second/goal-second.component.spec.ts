@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoalSmallComponent } from './goal-small.component';
+import { GoalSmallComponent } from './goal-second.component';
 
 describe('GoalSmallComponent', () => {
   let component: GoalSmallComponent;

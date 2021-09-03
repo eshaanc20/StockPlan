@@ -29,6 +29,7 @@ export interface GoalsData {
   goalCompletedDate: string;
   currentValue: number;
   progress: number;
+  read: Boolean;
   id: string;
 }
 
