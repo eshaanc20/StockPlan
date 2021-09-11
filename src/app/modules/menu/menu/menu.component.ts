@@ -25,17 +25,17 @@ export class MenuComponent implements OnInit {
     } else {
       this.homepage = false;
     }
-    const currentToken = localStorage.getItem('currentToken');
+    const currentToken = sessionStorage.getItem("currentToken");
     if (currentToken) {
+      this.loginService.user.subscribe(res => {
+        this.userFirstName = res.getFirstName();
+        this.loggedIn = true;
+        if (this.router.url !== '/') {
+          this.homepage = false;
+        }
+      });
       this.loginService.verifyToken(currentToken);
     }
-    this.loginService.user.subscribe(res => {
-      this.userFirstName = res.getFirstName();
-      this.loggedIn = true;
-      if (this.router.url !== '/') {
-        this.homepage = false;
-      }
-    });
   }
 
   open() {

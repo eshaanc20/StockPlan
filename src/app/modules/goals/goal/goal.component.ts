@@ -24,7 +24,6 @@ export class GoalComponent implements OnInit {
   }
 
   delete(id) {
-    console.log(id)
     this.goalService.deleteGoal(id).subscribe(result => {
       this.update.emit(true);
     });

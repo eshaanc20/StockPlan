@@ -1,5 +1,5 @@
 <div style="padding-left: 30px; padding-right: 30px">
-    <button mat-icon-button style="margin-top: 16px" [mat-menu-trigger-for]="menu">
+    <button mat-icon-button style="margin-top: 16px" [mat-menu-trigger-for]="menu" (menuClosed)="read()">
         <mat-icon [matBadge]="count" style="font-size: 30px;">announcement</mat-icon>
     </button>
     <mat-menu #menu="matMenu">

@@ -25,7 +25,10 @@ export class GoalsNotificationComponent implements OnInit {
           this.goalLists = res.allLists;
           for (let list of this.goalLists) {
             this.goals.getGoalsDetail(list.listNumber).subscribe(list => {
-              this.goalsCompleted = list.goalsDetail;
+              let currentList;
+              currentList = list.goalsDetail.filter(goal => !goal.read && goal.goalCompleted);
+              this.goalsCompleted.push(...currentList);
+              this.count = this.goalsCompleted.length;
             })
           }
         });
@@ -43,6 +46,14 @@ export class GoalsNotificationComponent implements OnInit {
         }
       });
     }
+  }
+
+  read() {
+    for (let goal of this.goalsCompleted) {
+      this.goals.readCompletedGoal(goal.id).subscribe(response => {});
+    }
+    this.count = 0;
+    this.goalsCompleted = [];
   }
 
 }
