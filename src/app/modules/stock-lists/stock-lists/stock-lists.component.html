@@ -12,10 +12,10 @@
     </div>
     <div *ngFor="let list of stockLists">
         <div>
-            <a mat-button class="navigation-lists-button" [routerLink]="['/dashboard/list/'+list.listNumber]">
+            <a mat-button [ngClass]="current == list.name? 'navigation-lists-button-selected': 'navigation-lists-button'" (click)="goToList(list.listNumber, list.name)">
                 <div style="display: flex; justify-content: space-between;">
                     <p style="margin: 0px">{{list.name}}</p>
-                    <p style="margin: 0px; color: gray">{{list.stocks.length}}</p>
+                    <p style="margin: 0px; opacity: 0.7">{{list.stocks.length}}</p>
                 </div>
             </a>
         </div>

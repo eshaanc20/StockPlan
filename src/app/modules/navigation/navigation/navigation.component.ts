@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  selected: String;
+
+  constructor() { 
+    this.selected = "";
+  }
 
   ngOnInit() {
+  }
+
+  portfolioSelected() {
+    this.selected = "portfolio";
+  }
+
+  updateSelected(name) {
+    this.selected = name;
   }
 
 }
