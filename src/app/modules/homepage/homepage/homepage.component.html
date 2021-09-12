@@ -5,16 +5,50 @@
         <app-menu></app-menu>
         <div class='homepage-content'>
             <div class='homepage-title'>
-                <p style="margin-bottom: 0px; margin-top: 75px">StockPlan</p>
+                <div style="display: flex; flex-direction: row;">
+                    <div style="margin-bottom: 0px; padding-top: 35px;">
+                        <img src="../../../../assets/application-icon.png" width="100" height="100">
+                    </div>
+                    <p style="margin-bottom: 0px; margin-top: 35px; margin-left: 20px">StockPlan</p>
+                </div>
                 <div style="font-size: 40px; margin-top: 0px; display: flex; margin-top: 20px">
                     <p style="color: rgb(50, 185, 238); margin-top: 0px">Plan.</p>
-                    <p style="color: rgb(73, 87, 209); margin-left: 10px; margin-top: 0px">Automate.</p>
-                    <p style="color: rgb(57, 199, 104); margin-left: 10px; margin-top: 0px">Invest.</p>
+                    <p style="color: rgb(83, 97, 223); margin-left: 10px; margin-top: 0px">Automate.</p>
+                    <p style="color: rgb(34, 179, 82); margin-left: 10px; margin-top: 0px">Invest.</p>
                 </div>
             </div>
             <div class='homepage-login-form-component'>
                 <app-login></app-login>
             </div>
+        </div>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: space-evenly; margin-top: 120px;">
+        <div class="homepage-box-1">
+            <div style="display: flex; justify-content: center;">
+                <div class="homepage-box-icon">
+                    <mat-icon style="font-size: 40px;">edit</mat-icon>
+                </div>
+            </div>
+            <p class="homepage-box-title-text">Plan</p>
+            <p class="homepage-box-text">Organize stocks into multiple lists. View important information for stocks. Add portfolio and view portfolio statistics</p>
+        </div>
+        <div class="homepage-box-2">
+            <div style="display: flex; justify-content: center;">
+                <div class="homepage-box-icon">
+                    <mat-icon style="font-size: 40px;">settings</mat-icon>
+                </div>
+            </div>
+            <p class="homepage-box-title-text">Automate</p>
+            <p class="homepage-box-text">Create goals for stocks. Goals could include what price to buy or sell a stock. Set goals for stocks in the portfolio. Be notified when goals are acheived. No need to monitor stocks every day</p>
+        </div>
+        <div class="homepage-box-3">
+            <div style="display: flex; justify-content: center;">
+                <div class="homepage-box-icon">
+                    <mat-icon style="font-size: 40px;">trending_up</mat-icon>
+                </div>
+            </div>
+            <p class="homepage-box-title-text">Invest</p>
+            <p class="homepage-box-text">Use completed goals to make decisions for the portfolio. Update portfolio and set goals for new stocks on portfolio</p>
         </div>
     </div>
 </div>

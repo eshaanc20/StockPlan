@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FormsModule } from '@angular/forms';
 import { MenuModule } from '../menu/menu.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -14,6 +15,7 @@ import { AuthenticationModule } from '../authentication/authentication.module';
     FormsModule,
     AuthenticationModule,
     MenuModule,
+    MatIconModule
   ],
   exports: [
     HomepageComponent
