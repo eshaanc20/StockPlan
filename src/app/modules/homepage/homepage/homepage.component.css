@@ -26,7 +26,7 @@
 }
 
 .homepage-box-1 {
-    height: 400px; 
+    height: 370px; 
     width: 250px; 
     background: linear-gradient(to left bottom, rgb(50, 131, 238), rgb(0, 162, 255));
     box-shadow: 0px 5px 10px 5px lightgray;
@@ -37,7 +37,7 @@
 }
 
 .homepage-box-2 {
-    height: 400px; 
+    height: 370px; 
     width: 250px; 
     background: linear-gradient(to left bottom, rgb(134, 101, 224), rgb(89, 28, 231));
     box-shadow: 0px 5px 10px 5px lightgray;
@@ -48,7 +48,7 @@
 }
 
 .homepage-box-3 {
-    height: 400px; 
+    height: 370px; 
     width: 250px; 
     background: linear-gradient(to left bottom, rgb(23, 211, 95), rgb(14, 160, 27));
     box-shadow: 0px 5px 10px 5px lightgray;
@@ -62,6 +62,7 @@
     font-size: 35px;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .homepage-box-icon {
@@ -76,5 +77,6 @@
 }
 
 .homepage-box-text {
+    margin-top: 0px;
     font-size: 20px;
 }
