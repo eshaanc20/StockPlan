@@ -47,6 +47,7 @@ export class MenuComponent implements OnInit {
   }
 
   signOut() {
+    sessionStorage.removeItem("currentToken");
     this.router.navigate(['../'])
   }
 }

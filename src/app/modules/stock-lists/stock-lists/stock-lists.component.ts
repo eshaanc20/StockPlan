@@ -12,7 +12,6 @@ import { StockListsService } from '../stock-lists.service';
   styleUrls: ['./stock-lists.component.css']
 })
 export class StockListsComponent implements OnInit {
-  private newDialog: any;
   stockLists: any;
   @Input() current: string;
   @Output() updated = new EventEmitter<String>();
@@ -35,7 +34,12 @@ export class StockListsComponent implements OnInit {
   }
 
   addNewList() {
-    this.newDialog = this.dialog.open(NewListComponent);
+    const addListDialog = this.dialog.open(NewListComponent);
+    addListDialog.afterClosed().subscribe(res => {
+      this.stockListService.getAllLists().subscribe(lists => {
+        this.stockLists = lists.allLists;
+      });
+    })
   }
 
   goToList(listNumber, listName: string) {

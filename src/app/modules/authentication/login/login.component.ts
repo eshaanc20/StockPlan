@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loggedIn = false;
   user: User;
   error = false;
+  progress = false;
 
   constructor(private loginService: LoginService, private router: Router) {
   }
@@ -22,17 +23,20 @@ export class LoginComponent implements OnInit {
     this.loginService.user.subscribe(res => {
       this.loggedIn = true;
       this.user = res;
+      this.progress = false;
       if (res.getNewToken()) {
         this.router.navigate(['/dashboard/portfolio']);
       }
     });
     this.loginService.loginError.subscribe(err => {
       this.error = true;
+      this.progress = false;
     });
   }
 
   onLogin(f: NgForm) {
     this.error = false;
+    this.progress = true;
     this.loginService.login(f.value.email, f.value.password);
   }
 }

@@ -12,7 +12,6 @@ import { NewGoalsListComponent } from '../new-goals-list/new-goals-list.componen
   styleUrls: ['./goal-lists.component.css']
 })
 export class GoalListsComponent implements OnInit {
-  private addDialog: any;
   goalLists: any;
   @Input() current: string;
   @Output() updated = new EventEmitter<String>();
@@ -34,7 +33,12 @@ export class GoalListsComponent implements OnInit {
   }
 
   addNewList() {
-    this.addDialog = this.dialog.open(NewGoalsListComponent);
+    const addDialog = this.dialog.open(NewGoalsListComponent);
+    addDialog.afterClosed().subscribe(res => {
+      this.goals.getAllLists().subscribe(res => {
+        this.goalLists = res.allLists;
+      });
+    })
   }
 
   goToList(listNumber, listName: string) {

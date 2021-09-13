@@ -17,7 +17,9 @@
             <mat-label>Password</mat-label>
             <input matInput ngModel type='password' name='password'>
         </mat-form-field>
-        <button mat-raised-button type='submit' class='button'>Sign up</button>
+        <div style="display: flex; justify-content: center; width: 100%" *ngIf="progress">
+            <mat-progress-spinner mode="indeterminate" [diameter]="40"></mat-progress-spinner>
+        </div>
+        <button mat-raised-button type='submit' class='button' *ngIf="!progress">Sign up</button>
     </form>
-    <p *ngIf='inProgress'>In progress</p>
 </div>

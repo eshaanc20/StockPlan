@@ -11,6 +11,9 @@
             <input matInput ngModel type="password" name="password">
             <mat-error>Invalid password</mat-error>
         </mat-form-field>
-        <button mat-raised-button type='submit' class='button1'>Sign in</button>
+        <div style="display: flex; justify-content: center; width: 100%" *ngIf="progress">
+            <mat-progress-spinner mode="indeterminate" [diameter]="40"></mat-progress-spinner>
+        </div>
+        <button mat-raised-button type='submit' class='button1' *ngIf="!progress">Sign in</button>
     </form>
 </div>
