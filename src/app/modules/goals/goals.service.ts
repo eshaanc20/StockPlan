@@ -11,7 +11,7 @@ export class GoalsService {
   constructor(private http: HttpClient, private loginService: LoginService) { }
 
   getAllLists() {
-    return this.http.get('http://localhost:3000/goals/list/all', {
+    return this.http.get('https://stockplan-backend.herokuapp.com/goals/list/all', {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -23,7 +23,7 @@ export class GoalsService {
   }
 
   addNewList(name: string) {
-    return this.http.post('http://localhost:3000/goals/list/new', {
+    return this.http.post('https://stockplan-backend.herokuapp.com/goals/list/new', {
       listName: name
     }, {
       headers: {
@@ -37,7 +37,7 @@ export class GoalsService {
   }
 
   getGoalsDetail(listId: string) {
-    return this.http.get('http://localhost:3000/goals/list/' + listId, {
+    return this.http.get('https://stockplan-backend.herokuapp.com/goals/list/' + listId, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -57,7 +57,7 @@ export class GoalsService {
     validUntil: string,
     parameter: string,
     targetNumber: number) {
-    return this.http.post('http://localhost:3000/goals/list/' + listId, {
+    return this.http.post('https://stockplan-backend.herokuapp.com/goals/list/' + listId, {
       goalTitle: title,
       goalType: type,
       goalDescription: description,
@@ -77,7 +77,7 @@ export class GoalsService {
   }
 
   deleteGoal(goalId: string) {
-    return this.http.delete('http://localhost:3000/goals/' + goalId,
+    return this.http.delete('https://stockplan-backend.herokuapp.com/goals/' + goalId,
     {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
@@ -86,7 +86,7 @@ export class GoalsService {
   }
 
   readCompletedGoal(goalId: string) {
-    return this.http.put('http://localhost:3000/goals/' + goalId + '/read', {},
+    return this.http.put('https://stockplan-backend.herokuapp.com/goals/' + goalId + '/read', {},
     {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()

@@ -16,7 +16,7 @@ export class LoginService {
   constructor(private http: HttpClient) {  }
 
   login(loginEmail: string, loginPassword: string) {
-    this.http.post('http://localhost:3000/user/login', {email: loginEmail, password: loginPassword})
+    this.http.post('https://stockplan-backend.herokuapp.com/user/login', {email: loginEmail, password: loginPassword})
       .pipe(map(res => {
         let resData;
         resData = {...res};
@@ -35,7 +35,7 @@ export class LoginService {
   }
 
   signup(firstName: string, lastName: string, newEmail: string, newPassword: string) {
-    return this.http.post('http://localhost:3000/user/new', {
+    return this.http.post('https://stockplan-backend.herokuapp.com/user/new', {
       firstName: firstName,
       lastName: lastName,
       email: newEmail,
@@ -44,7 +44,7 @@ export class LoginService {
   }
 
   verifyToken(previousToken: string) {
-    this.http.post('http://localhost:3000/user/verify-token', {token: previousToken})
+    this.http.post('https://stockplan-backend.herokuapp.com/user/verify-token', {token: previousToken})
     .pipe(map(res => {
       let resData;
       resData = {...res};

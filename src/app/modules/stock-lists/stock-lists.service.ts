@@ -12,7 +12,7 @@ export class StockListsService {
   constructor(private http: HttpClient, private loginService: LoginService) { }
 
   addNewList(name: string) {
-    return this.http.post('http://localhost:3000/stocks/list/new', {
+    return this.http.post('https://stockplan-backend.herokuapp.com/stocks/list/new', {
       listName: name
     }, {
       headers: {
@@ -26,7 +26,7 @@ export class StockListsService {
   }
 
   getAllLists() {
-    return this.http.get('http://localhost:3000/stocks/list/all', {
+    return this.http.get('https://stockplan-backend.herokuapp.com/stocks/list/all', {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -38,7 +38,7 @@ export class StockListsService {
   }
 
   getStockDetails(listId: string) {
-    return this.http.get('http://localhost:3000/stocks/list/' + listId, {
+    return this.http.get('https://stockplan-backend.herokuapp.com/stocks/list/' + listId, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -50,7 +50,7 @@ export class StockListsService {
   }
 
   addNewStockToList(listId: string, stock: string) {
-    return this.http.post('http://localhost:3000/stocks/list/' + listId, {
+    return this.http.post('https://stockplan-backend.herokuapp.com/stocks/list/' + listId, {
       stockSymbol: stock
     }, {
       headers: {
@@ -64,7 +64,7 @@ export class StockListsService {
   }
 
   delete(listId: string, stock: string) {
-    return this.http.delete('http://localhost:3000/stocks/list/' + listId + "/" + stock, {
+    return this.http.delete('https://stockplan-backend.herokuapp.com/stocks/list/' + listId + "/" + stock, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }

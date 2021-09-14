@@ -11,7 +11,7 @@ export class PortfolioService {
   constructor(private loginService: LoginService, private http: HttpClient) { }
 
   addToPortfolio(stock: string, quantity: number, price: number) {
-    return this.http.post('http://localhost:3000/portfolio', {
+    return this.http.post('https://stockplan-backend.herokuapp.com/portfolio', {
       stock,
       quantity,
       price
@@ -27,7 +27,7 @@ export class PortfolioService {
   }
 
   getPortfolio() {
-    return this.http.get('http://localhost:3000/portfolio', {
+    return this.http.get('https://stockplan-backend.herokuapp.com/portfolio', {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
@@ -39,7 +39,7 @@ export class PortfolioService {
   }
 
   delete(id: string) {
-    return this.http.delete('http://localhost:3000/portfolio/' + id, {
+    return this.http.delete('https://stockplan-backend.herokuapp.com/portfolio/' + id, {
       headers: {
         authentication: 'Bearer ' + this.loginService.getLoginToken()
       }
