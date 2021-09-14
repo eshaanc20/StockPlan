@@ -1,9 +1,17 @@
 <div class="navigation">
-    <div style="margin-top: 20px">
-        <div style="margin-top: 0px;">
-            <a mat-button class="navigation-portfolio-button" [routerLink]="['/dashboard/portfolio']">Portfolio</a>
+    <div style="margin-top: 20px; height: 90%">
+        <div style="margin-top: 0px; display: flex; padding-left: 0px;" (click)="portfolioSelected()">
+            <a mat-button [ngClass]="selected == 'portfolio' ? 'navigation-portfolio-button-selected': 'navigation-portfolio-button'" [routerLink]="['/dashboard/portfolio']">
+                <div style="display: flex; height: 40px;">
+                    <mat-icon style="font-size: 25px; margin-top: 5px; padding-top: 0px; margin-right: 8px;">work_outline</mat-icon>
+                    <p style="margin-top: 0px">Portfolio</p>
+                </div>
+            </a>
         </div>
-        <app-stock-lists></app-stock-lists>
-        <app-goal-lists></app-goal-lists>
+        <app-stock-lists [current]="selected" (updated)="updateSelected($event)"></app-stock-lists>
+        <app-goal-lists [current]="selected" (updated)="updateSelected($event)"></app-goal-lists>
+    </div>
+    <div style="font-size: 15px;">
+        <p style="margin: 0px; text-align: center; color: gray">Version 1.0</p>
     </div>
 </div>

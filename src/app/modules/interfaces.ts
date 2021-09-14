@@ -29,12 +29,13 @@ export interface GoalsData {
   goalCompletedDate: string;
   currentValue: number;
   progress: number;
+  read: Boolean;
   id: string;
 }
 
 export interface PortfolioStockData {
   stock: string;
-  shares: number;
+  quantity: number;
   price: number;
   bookValue: number;
   marketValue: number;
