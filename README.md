@@ -1,5 +1,7 @@
 # StockPlan
 
+Application URL: https://stockplanapp.firebaseapp.com
+
 Version: 1.0
 
 Web application to plan investment portfolio by organizing stocks into lists and creating goals for stocks. A goal for a stock includes the stock price of when to buy or sell the stock. Creating goals for stocks allows the planning of when to buy or sell a stock and automate the process of waiting. By creating goals for stocks, there is no need to monitor stocks every day. The web application will have a notification when a stock has reached a specific price. Stocks can be separated into multiple lists that help organize stocks and provides important information about each stock in the list. The application will provide statistics about the portfolio based on the stocks added to the portfolio and the goals for stocks in the portfolio.
